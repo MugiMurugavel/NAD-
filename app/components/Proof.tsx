@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "motion/react";
 import CountUp from "./CountUp";
+import { sectionContainer, sectionItem } from "./Reveal";
 
 export default function Proof() {
   return (
@@ -21,8 +22,8 @@ export default function Proof() {
           </svg>
         </div>
       </div>
-      <div style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', maxWidth: '1180px', position: 'relative', width: '100%' }}>
-        <div className="max-md:!flex-col max-md:!gap-10 max-md:!items-start" style={{ alignItems: 'flex-end', boxSizing: 'border-box', display: 'flex', gap: '48px', justifyContent: 'space-between', paddingBottom: '62px' }}>
+      <motion.div variants={sectionContainer} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-15% 0px -10% 0px" }} style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', maxWidth: '1180px', position: 'relative', width: '100%' }}>
+        <motion.div variants={sectionItem} className="max-md:!flex-col max-md:!gap-10 max-md:!items-start" style={{ alignItems: 'flex-end', boxSizing: 'border-box', display: 'flex', gap: '48px', justifyContent: 'space-between', paddingBottom: '62px' }}>
           <div className="max-md:!max-w-full" style={{ alignItems: 'flex-start', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', maxWidth: '700px' }}>
             <div style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', gap: '13px', paddingBottom: '28px' }}>
               <div style={{ backgroundColor: 'var(--color-gold)', boxSizing: 'border-box', flexShrink: '0', height: '1px', width: '30px' }} />
@@ -49,8 +50,8 @@ export default function Proof() {
               A short, mechanism-of-action study built to ask one question: did NAD⁺ biology actually change inside the cell?
             </div>
           </div>
-        </div>
-        <div className="max-md:!flex-col max-md:!gap-10" style={{ boxSizing: 'border-box', display: 'flex', gap: '56px', width: '100%' }}>
+        </motion.div>
+        <motion.div variants={sectionItem} className="max-md:!flex-col max-md:!gap-10" style={{ boxSizing: 'border-box', display: 'flex', gap: '56px', width: '100%' }}>
           <div className="max-md:!w-full max-md:!shrink" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', flexShrink: '0', justifyContent: 'center', width: '440px' }}>
             <div style={{ alignItems: 'flex-start', boxSizing: 'border-box', display: 'flex' }}>
               <div className="max-md:!text-[44px] max-md:!leading-[78px]" style={{ boxSizing: 'border-box', color: 'var(--color-gold)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '90px', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '150px' }}>
@@ -150,8 +151,8 @@ export default function Proof() {
               </div>
             </div>
           </motion.div>
-        </div>
-        <div className="max-md:!flex-col max-md:!gap-8" style={{ boxSizing: 'border-box', display: 'flex', paddingTop: '56px', width: '100%' }}>
+        </motion.div>
+        <motion.div variants={sectionItem} className="max-md:!flex-col max-md:!gap-8" style={{ boxSizing: 'border-box', display: 'flex', paddingTop: '56px', width: '100%' }}>
           <motion.div className="max-md:!w-full max-md:!pr-0 cursor-default" whileHover={{ y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 28 }} style={{ boxSizing: 'border-box', display: 'flex', flexBasis: '0%', flexDirection: 'column', flexGrow: '1', gap: '8px', paddingRight: '32px' }}>
             <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '46px', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '46px' }}>
               N = 51
@@ -184,8 +185,8 @@ export default function Proof() {
               Oral swish-and-<br />swallow regimen
             </div>
           </motion.div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

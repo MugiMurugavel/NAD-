@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "motion/react";
+import { sectionContainer, sectionItem } from "./Reveal";
 
 export default function CTA() {
   return (
@@ -19,22 +20,22 @@ export default function CTA() {
           <circle cx="830" cy="360" r="2.6" fill="#B58A3C80" />
           <circle cx="740" cy="110" r="2" fill="#CBA96899" />
         </svg>
-        <div className="max-md:!max-w-full" style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', maxWidth: '760px', position: 'relative', width: '100%' }}>
-          <div style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', gap: '13px', paddingBottom: '30px' }}>
+        <motion.div variants={sectionContainer} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-15% 0px -10% 0px" }} className="max-md:!max-w-full" style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', maxWidth: '760px', position: 'relative', width: '100%' }}>
+          <motion.div variants={sectionItem} style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', gap: '13px', paddingBottom: '30px' }}>
             <div style={{ backgroundColor: 'var(--color-gold)', borderRadius: '50%', boxSizing: 'border-box', display: 'inline-block', flexShrink: '0', height: '6px', width: '6px' }} />
             <div style={{ boxSizing: 'border-box', color: 'var(--color-gold-soft)', display: 'inline-block', fontFamily: 'var(--font-label)', fontSize: '13px', fontWeight: 600, letterSpacing: '0.24em', lineHeight: '16px', textTransform: 'uppercase', whiteSpaceCollapse: 'preserve' }}>
               Get in touch
             </div>
-          </div>
-          <div className="max-md:!text-[32px] max-md:!leading-[34px] max-md:!max-w-full" style={{ boxSizing: 'border-box', color: 'var(--color-cream)', display: 'flex', flexWrap: 'wrap', fontFamily: 'var(--font-display)', fontSize: '68px', fontWeight: 500, justifyContent: 'center', letterSpacing: '-0.02em', lineHeight: '68px', maxWidth: '700px', textAlign: 'center' }}>
+          </motion.div>
+          <motion.div variants={sectionItem} className="max-md:!text-[32px] max-md:!leading-[34px] max-md:!max-w-full" style={{ boxSizing: 'border-box', color: 'var(--color-cream)', display: 'flex', flexWrap: 'wrap', fontFamily: 'var(--font-display)', fontSize: '68px', fontWeight: 500, justifyContent: 'center', letterSpacing: '-0.02em', lineHeight: '68px', maxWidth: '700px', textAlign: 'center' }}>
             Be among the first to ask the better question.
-          </div>
-          <div className="max-md:!max-w-full" style={{ boxSizing: 'border-box', fontFamily: 'var(--font-body)', maxWidth: '520px', paddingTop: '26px' }}>
+          </motion.div>
+          <motion.div variants={sectionItem} className="max-md:!max-w-full" style={{ boxSizing: 'border-box', fontFamily: 'var(--font-body)', maxWidth: '520px', paddingTop: '26px' }}>
             <div style={{ boxSizing: 'border-box', color: 'var(--color-cream-dim)', display: 'flex', flexWrap: 'wrap', fontFamily: 'var(--font-body)', fontSize: '19px', justifyContent: 'center', lineHeight: '31px', textAlign: 'center', whiteSpaceCollapse: 'preserve' }}>
               Have a question about the science, the trial, or LNAD⁺ itself? Our team reads every note — and would love to hear from you.
             </div>
-          </div>
-          <div className="max-md:!flex-col max-md:!gap-3 max-md:!w-full" style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', gap: '20px', paddingTop: '44px' }}>
+          </motion.div>
+          <motion.div variants={sectionItem} className="max-md:!flex-col max-md:!gap-3 max-md:!w-full" style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', gap: '20px', paddingTop: '44px' }}>
             <motion.a href="/contact" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 400, damping: 26 }} className="max-md:!w-full max-md:!justify-center cursor-pointer" style={{ alignItems: 'center', backgroundColor: 'var(--color-gold)', borderRadius: 'var(--radius-pill)', boxSizing: 'border-box', display: 'flex', gap: '10px', paddingBlock: '18px', paddingInline: '34px' }}>
               <div style={{ boxSizing: 'border-box', color: '#1C1404', display: 'inline-block', fontFamily: 'var(--font-label)', fontSize: '16px', fontWeight: 600, lineHeight: '20px', whiteSpaceCollapse: 'preserve' }}>
                 Get in touch
@@ -48,8 +49,8 @@ export default function CTA() {
                 Read the trial summary
               </div>
             </motion.a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );

@@ -1,9 +1,10 @@
 "use client";
 import { motion } from "motion/react";
+import { sectionContainer, sectionItem } from "./Reveal";
 
 export default function Problem() {
   return (
-    <div className="max-md:!flex-col max-md:!gap-10 max-md:!items-start max-md:!px-5 max-md:!py-14" style={{ alignItems: 'center', backgroundColor: 'var(--color-ivory)', boxSizing: 'border-box', display: 'flex', fontSize: '12px', fontSynthesis: 'none', gap: '72px', lineHeight: '16px', MozOsxFontSmoothing: 'grayscale', overflow: 'clip', paddingBlock: '128px', paddingInline: '60px', position: 'relative', WebkitFontSmoothing: 'antialiased', width: '100%' }}>
+    <motion.div className="max-md:!flex-col max-md:!gap-10 max-md:!items-start max-md:!px-5 max-md:!py-14" variants={sectionContainer} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-15% 0px -10% 0px" }} style={{ alignItems: 'center', backgroundColor: 'var(--color-ivory)', boxSizing: 'border-box', display: 'flex', fontSize: '12px', fontSynthesis: 'none', gap: '72px', lineHeight: '16px', MozOsxFontSmoothing: 'grayscale', overflow: 'clip', paddingBlock: '128px', paddingInline: '60px', position: 'relative', WebkitFontSmoothing: 'antialiased', width: '100%' }}>
       <div style={{ bottom: '0px', boxSizing: 'border-box', left: '0px', overflow: 'clip', position: 'absolute', right: '0px', top: '0px' }}>
         <svg width="1440" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style={{ top: '0px', right: '0px', bottom: '0px', left: '0px', rotate: '34deg', position: 'absolute', transformOrigin: '0% 0%' }}>
           <ellipse cx="430" cy="440" rx="720" ry="300" transform="rotate(-14 430 440)" fill="none" stroke="#B58A3C1F" style={{ strokeOpacity: '0.32', stroke: 'rgb(181, 138, 60)' }} />
@@ -20,7 +21,7 @@ export default function Problem() {
           </svg>
         </div>
       </div>
-      <div className="max-md:!w-full max-md:!shrink" style={{ alignItems: 'flex-start', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', flexShrink: '0', position: 'relative', width: '540px' }}>
+      <motion.div variants={sectionItem} className="max-md:!w-full max-md:!shrink" style={{ alignItems: 'flex-start', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', flexShrink: '0', position: 'relative', width: '540px' }}>
         <div style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', gap: '13px', paddingBottom: '30px' }}>
           <div style={{ backgroundColor: 'var(--color-gold)', boxSizing: 'border-box', flexShrink: '0', height: '1px', width: '30px' }} />
           <div style={{ boxSizing: 'border-box', color: 'var(--color-gold-deep)', display: 'inline-block', fontFamily: 'var(--font-label)', fontSize: '13px', fontWeight: 600, letterSpacing: '0.24em', lineHeight: '16px', textTransform: 'uppercase', whiteSpaceCollapse: 'preserve' }}>
@@ -53,8 +54,8 @@ export default function Problem() {
             A blood signal is not the same as a cellular mechanism.
           </div>
         </div>
-      </div>
-      <div className="max-md:!w-full" style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', flexBasis: '0%', flexDirection: 'column', flexGrow: '1', minWidth: '0px', position: 'relative' }}>
+      </motion.div>
+      <motion.div variants={sectionItem} className="max-md:!w-full" style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', flexBasis: '0%', flexDirection: 'column', flexGrow: '1', minWidth: '0px', position: 'relative' }}>
         <div className="max-md:!scale-[0.5] max-md:!origin-top" style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', gap: '20px', justifyContent: 'center', width: '100%' }}>
           <motion.div className="cursor-default" whileHover={{ y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 28 }} style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', flexShrink: '0', gap: '24px' }}>
             <div style={{ backgroundImage: 'linear-gradient(in oklab 160deg, oklab(67% 0.112 0.079) 0%, oklab(60.2% 0.120 0.081) 100%)', borderRadius: '28px', boxShadow: '#C85B4338 0px 24px 50px', boxSizing: 'border-box', flexShrink: '0', height: '248px', overflow: 'clip', position: 'relative', width: '264px' }}>
@@ -137,7 +138,7 @@ export default function Problem() {
           <div style={{ backgroundColor: 'var(--color-gold)', borderRadius: '50%', boxSizing: 'border-box', flexShrink: '0', height: '4px', width: '4px' }} />
           <div style={{ backgroundImage: 'linear-gradient(in oklab 90deg, var(--color-gold) 0%, oklab(66% 0.019 0.107 / 0%) 100%)', boxSizing: 'border-box', flexShrink: '0', height: '1px', width: '60px' }} />
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

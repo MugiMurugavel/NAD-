@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "motion/react";
+import { sectionContainer, sectionItem } from "./Reveal";
 
 export default function Boundaries() {
   return (
@@ -20,8 +21,8 @@ export default function Boundaries() {
           </svg>
         </div>
       </div>
-      <div style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', maxWidth: '1180px', position: 'relative', width: '100%' }}>
-        <div className="max-md:!max-w-full" style={{ alignItems: 'flex-start', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', maxWidth: '760px', paddingBottom: '62px' }}>
+      <motion.div variants={sectionContainer} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-15% 0px -10% 0px" }} style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', maxWidth: '1180px', position: 'relative', width: '100%' }}>
+        <motion.div variants={sectionItem} className="max-md:!max-w-full" style={{ alignItems: 'flex-start', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', maxWidth: '760px', paddingBottom: '62px' }}>
           <div style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', gap: '13px', paddingBottom: '28px' }}>
             <div style={{ backgroundColor: 'var(--color-gold)', boxSizing: 'border-box', flexShrink: '0', height: '1px', width: '30px' }} />
             <div style={{ boxSizing: 'border-box', color: 'var(--color-gold-deep)', display: 'inline-block', fontFamily: 'var(--font-label)', fontSize: '13px', fontWeight: 600, letterSpacing: '0.24em', lineHeight: '16px', textTransform: 'uppercase', whiteSpaceCollapse: 'preserve' }}>
@@ -36,8 +37,8 @@ export default function Boundaries() {
               The credibility of this work depends on clean boundaries. Here is exactly what the science supports — and what it does not yet.
             </div>
           </div>
-        </div>
-        <div className="max-md:!flex-col max-md:!gap-10" style={{ boxSizing: 'border-box', display: 'flex', paddingBottom: '56px', width: '100%' }}>
+        </motion.div>
+        <motion.div variants={sectionItem} className="max-md:!flex-col max-md:!gap-10" style={{ boxSizing: 'border-box', display: 'flex', paddingBottom: '56px', width: '100%' }}>
           <motion.div whileHover={{ y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 28 }} className="max-md:!w-full max-md:!shrink max-md:!pr-0 cursor-default" style={{ boxSizing: 'border-box', display: 'flex', flexBasis: '0%', flexDirection: 'column', flexGrow: '1', minWidth: '0px', paddingRight: '60px' }}>
             <div style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', gap: '10px', paddingBottom: '30px' }}>
               <div style={{ backgroundColor: 'var(--color-gold)', borderRadius: '50%', boxSizing: 'border-box', display: 'inline-block', flexShrink: '0', height: '8px', width: '8px' }} />
@@ -134,8 +135,8 @@ export default function Boundaries() {
               </div>
             </div>
           </motion.div>
-        </div>
-        <motion.div whileHover={{ y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 28 }} className="max-md:!py-8 max-md:!px-6 max-md:!gap-4 cursor-default" style={{ alignItems: 'flex-start', backgroundColor: 'var(--color-ink)', borderRadius: '18px', boxSizing: 'border-box', display: 'flex', gap: '24px', overflow: 'clip', paddingBlock: '42px', paddingInline: '46px', position: 'relative', width: '100%' }}>
+        </motion.div>
+        <motion.div variants={sectionItem} whileHover={{ y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 28 }} className="max-md:!py-8 max-md:!px-6 max-md:!gap-4 cursor-default" style={{ alignItems: 'flex-start', backgroundColor: 'var(--color-ink)', borderRadius: '18px', boxSizing: 'border-box', display: 'flex', gap: '24px', overflow: 'clip', paddingBlock: '42px', paddingInline: '46px', position: 'relative', width: '100%' }}>
           <div style={{ bottom: '0px', boxSizing: 'border-box', left: '0px', mixBlendMode: 'soft-light', opacity: '0.5', position: 'absolute', right: '0px', top: '0px' }}>
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
               <filter id="_5uda0s0"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
@@ -154,7 +155,7 @@ export default function Boundaries() {
             </div>
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 }

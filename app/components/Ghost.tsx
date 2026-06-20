@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "motion/react";
+import { sectionContainer, sectionItem } from "./Reveal";
 
 export default function Ghost() {
   return (
@@ -11,14 +12,14 @@ export default function Ghost() {
             <rect width="100%" height="100%" filter="url(#_0qz2bx0)" fill="#000000" />
           </svg>
         </div>
-        <div style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', maxWidth: '1080px', position: 'relative', width: '100%' }}>
-          <div style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', gap: '13px', paddingBottom: '28px' }}>
+        <motion.div variants={sectionContainer} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-15% 0px -10% 0px" }} style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', maxWidth: '1080px', position: 'relative', width: '100%' }}>
+          <motion.div variants={sectionItem} style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', gap: '13px', paddingBottom: '28px' }}>
             <div style={{ backgroundColor: 'var(--color-gold)', borderRadius: '50%', boxSizing: 'border-box', display: 'inline-block', flexShrink: '0', height: '6px', width: '6px' }} />
             <div style={{ boxSizing: 'border-box', color: 'var(--color-gold-soft)', display: 'inline-block', fontFamily: 'var(--font-label)', fontSize: '13px', fontWeight: 600, letterSpacing: '0.24em', lineHeight: '16px', textTransform: 'uppercase', whiteSpaceCollapse: 'preserve' }}>
               The distinction that matters
             </div>
-          </div>
-          <div style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', paddingBottom: '24px' }}>
+          </motion.div>
+          <motion.div variants={sectionItem} style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', paddingBottom: '24px' }}>
             <div className="max-md:!text-[30px] max-md:!leading-[34px]" style={{ boxSizing: 'border-box', color: 'var(--color-cream)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '64px', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '66px', textAlign: 'center' }}>
               A label can say NAD⁺.
             </div>
@@ -30,14 +31,14 @@ export default function Ghost() {
                 ghost.
               </div>
             </div>
-          </div>
-          <div className="max-md:!max-w-full" style={{ boxSizing: 'border-box', fontFamily: 'var(--font-body)', maxWidth: '600px', paddingBottom: '72px' }}>
+          </motion.div>
+          <motion.div variants={sectionItem} className="max-md:!max-w-full" style={{ boxSizing: 'border-box', fontFamily: 'var(--font-body)', maxWidth: '600px', paddingBottom: '72px' }}>
             <div style={{ boxSizing: 'border-box', color: 'var(--color-cream-dim)', display: 'flex', flexWrap: 'wrap', fontFamily: 'var(--font-body)', fontSize: '19px', justifyContent: 'center', lineHeight: '31px', textAlign: 'center', whiteSpaceCollapse: 'preserve' }}>
               NAD⁺ is not just an ingredient. It is a precision coenzyme — and how it survives the journey to your cells decides whether it can do anything at all.
             </div>
-          </div>
-          <div className="max-md:!flex-col max-md:!gap-6" style={{ boxSizing: 'border-box', display: 'flex', gap: '28px', width: '100%' }}>
-            <motion.div className="cursor-default" whileHover={{ y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 28 }} style={{ alignItems: 'flex-start', backgroundColor: '#EFE7D706', borderColor: '#EFE7D71F', borderRadius: '20px', borderStyle: 'solid', borderWidth: '1px', boxSizing: 'border-box', display: 'flex', flexBasis: '0%', flexDirection: 'column', flexGrow: '1', minWidth: '0px', overflow: 'clip', padding: '40px' }}>
+          </motion.div>
+          <motion.div variants={sectionContainer} className="max-md:!flex-col max-md:!gap-6" style={{ boxSizing: 'border-box', display: 'flex', gap: '28px', width: '100%' }}>
+            <motion.div variants={sectionItem} className="cursor-default" whileHover={{ y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 28 }} style={{ alignItems: 'flex-start', backgroundColor: '#EFE7D706', borderColor: '#EFE7D71F', borderRadius: '20px', borderStyle: 'solid', borderWidth: '1px', boxSizing: 'border-box', display: 'flex', flexBasis: '0%', flexDirection: 'column', flexGrow: '1', minWidth: '0px', overflow: 'clip', padding: '40px' }}>
               <div className="transition-transform hover:-translate-y-0.5 will-change-transform" style={{ alignItems: 'center', backgroundColor: '#EFE7D70D', borderColor: '#EFE7D724', borderRadius: 'var(--radius-pill)', borderStyle: 'solid', borderWidth: '1px', boxSizing: 'border-box', display: 'inline-flex', gap: '8px', paddingBlock: '7px', paddingInline: '14px' }}>
                 <div style={{ backgroundColor: '#EFE7D766', borderRadius: '50%', boxSizing: 'border-box', display: 'inline-block', flexShrink: '0', height: '6px', width: '6px' }} />
                 <div style={{ boxSizing: 'border-box', color: 'var(--color-cream-dim)', display: 'inline-block', fontFamily: 'var(--font-label)', fontSize: '12.5px', fontWeight: 600, letterSpacing: '0.16em', lineHeight: '16px', textTransform: 'uppercase', whiteSpaceCollapse: 'preserve' }}>
@@ -71,14 +72,14 @@ export default function Ghost() {
               </div>
               <div style={{ boxSizing: 'border-box', display: 'inline-block', fontFamily: 'var(--font-display)', paddingBottom: '14px' }}>
                 <div style={{ boxSizing: 'border-box', color: '#EFE7D799', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '40px', fontWeight: 500, letterSpacing: '-0.01em', lineHeight: '42px' }}>
-                  Ghost NAD⁺
+                  Degraded NAD⁺
                 </div>
               </div>
               <div style={{ boxSizing: 'border-box', color: 'var(--color-cream-dim)', display: 'inline-block', fontFamily: 'var(--font-body)', fontSize: '17.5px', lineHeight: '28px', whiteSpaceCollapse: 'preserve' }}>
                 Chemically present, biologically absent. NAD⁺ that has degraded, inactivated, or become poorly characterized by the time it reaches the cell — on the label, but no longer able to do the work of a coenzyme.
               </div>
             </motion.div>
-            <motion.div className="cursor-default" whileHover={{ y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 28 }} style={{ alignItems: 'flex-start', backgroundColor: '#16233873', backgroundImage: 'radial-gradient(ellipse 120% 90% at 50% 0% in oklab, oklab(52.6% -0.029 -0.093 / 20%) 0%, oklab(25.5% -0.008 -0.043 / 0%) 60%)', backgroundOrigin: 'border-box', borderColor: '#B58A3C80', borderRadius: '20px', borderStyle: 'solid', borderWidth: '1px', boxSizing: 'border-box', display: 'flex', flexBasis: '0%', flexDirection: 'column', flexGrow: '1', minWidth: '0px', overflow: 'clip', padding: '40px' }}>
+            <motion.div variants={sectionItem} className="cursor-default" whileHover={{ y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 28 }} style={{ alignItems: 'flex-start', backgroundColor: '#16233873', backgroundImage: 'radial-gradient(ellipse 120% 90% at 50% 0% in oklab, oklab(52.6% -0.029 -0.093 / 20%) 0%, oklab(25.5% -0.008 -0.043 / 0%) 60%)', backgroundOrigin: 'border-box', borderColor: '#B58A3C80', borderRadius: '20px', borderStyle: 'solid', borderWidth: '1px', boxSizing: 'border-box', display: 'flex', flexBasis: '0%', flexDirection: 'column', flexGrow: '1', minWidth: '0px', overflow: 'clip', padding: '40px' }}>
               <div className="transition-transform hover:-translate-y-0.5 will-change-transform" style={{ alignItems: 'center', backgroundColor: '#B58A3C24', borderColor: '#B58A3C80', borderRadius: 'var(--radius-pill)', borderStyle: 'solid', borderWidth: '1px', boxSizing: 'border-box', display: 'inline-flex', gap: '8px', paddingBlock: '7px', paddingInline: '14px' }}>
                 <div style={{ backgroundColor: 'var(--color-gold-soft)', borderRadius: '50%', boxSizing: 'border-box', display: 'inline-block', flexShrink: '0', height: '6px', width: '6px' }} />
                 <div style={{ boxSizing: 'border-box', color: 'var(--color-gold-soft)', display: 'inline-block', fontFamily: 'var(--font-label)', fontSize: '12.5px', fontWeight: 600, letterSpacing: '0.16em', lineHeight: '16px', textTransform: 'uppercase', whiteSpaceCollapse: 'preserve' }}>
@@ -125,14 +126,14 @@ export default function Ghost() {
                 Functionally intact and enzymatically recognizable. NAD⁺ that stays biologically measurable and can still participate in NAD⁺ biology inside the cell. This is what LNAD⁺ is engineered to preserve.
               </div>
             </motion.div>
-          </div>
-          <div style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', gap: '18px', paddingTop: '60px' }}>
+          </motion.div>
+          <motion.div variants={sectionItem} style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', gap: '18px', paddingTop: '60px' }}>
             <div style={{ backgroundImage: 'linear-gradient(in oklab 180deg, oklab(66% 0.019 0.107 / 0%) 0%, var(--color-gold) 100%)', boxSizing: 'border-box', flexShrink: '0', height: '40px', width: '1px' }} />
             <div className="max-md:!max-w-full max-md:!text-[24px] max-md:!leading-[30px]" style={{ boxSizing: 'border-box', color: 'var(--color-cream)', display: 'flex', flexWrap: 'wrap', fontFamily: 'var(--font-display)', fontSize: '36px', fontWeight: 500, justifyContent: 'center', lineHeight: '44px', maxWidth: '740px', textAlign: 'center' }}>
               LNAD⁺ is engineered to protect NAD⁺ from becoming a ghost — preserving it in its functional, biologically recognizable form.
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );

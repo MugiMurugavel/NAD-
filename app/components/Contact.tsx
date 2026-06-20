@@ -6,6 +6,131 @@ import { useState } from "react";
 const INTERESTS = ["Curious customer", "Practitioner", "Press", "Partnership"];
 const ease = [0.22, 1, 0.36, 1] as const;
 
+const COUNTRIES = [
+  { code: "US", dial: "+1", flag: "🇺🇸", name: "United States" },
+  { code: "CA", dial: "+1", flag: "🇨🇦", name: "Canada" },
+  { code: "GB", dial: "+44", flag: "🇬🇧", name: "United Kingdom" },
+  { code: "AU", dial: "+61", flag: "🇦🇺", name: "Australia" },
+  { code: "DE", dial: "+49", flag: "🇩🇪", name: "Germany" },
+  { code: "FR", dial: "+33", flag: "🇫🇷", name: "France" },
+  { code: "IN", dial: "+91", flag: "🇮🇳", name: "India" },
+  { code: "AE", dial: "+971", flag: "🇦🇪", name: "United Arab Emirates" },
+  { code: "JP", dial: "+81", flag: "🇯🇵", name: "Japan" },
+] as const;
+
+type Country = (typeof COUNTRIES)[number];
+
+/** Live, country-aware formatting. +1 → (xxx) xxx-xxxx; others → spaced groups. */
+function formatPhone(dial: string, raw: string) {
+  const d = raw.replace(/\D/g, "");
+  if (dial === "+1") {
+    const t = d.slice(0, 10);
+    if (t.length <= 3) return t;
+    if (t.length <= 6) return `(${t.slice(0, 3)}) ${t.slice(3)}`;
+    return `(${t.slice(0, 3)}) ${t.slice(3, 6)}-${t.slice(6)}`;
+  }
+  return d.slice(0, 13).replace(/(.{1,3})(?=.)/g, "$1 ");
+}
+
+/**
+ * Phone input with a flag/dial-code selector and live formatting. Self-contained
+ * (remounts with the form on reset, so internal state clears for free).
+ */
+function PhoneField() {
+  const [country, setCountry] = useState<Country>(COUNTRIES[0]);
+  const [digits, setDigits] = useState("");
+  const [open, setOpen] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const display = formatPhone(country.dial, digits);
+  const active = focused || open;
+
+  return (
+    <div className="flex flex-col gap-[9px] pb-4">
+      <span style={{ fontFamily: "var(--font-label)", fontWeight: 500, fontSize: 15, color: "var(--color-ink)" }}>
+        Phone <span style={{ color: "#9A9486", fontWeight: 400 }}>· optional</span>
+      </span>
+      <div className="relative">
+        {open && (
+          <button type="button" aria-hidden tabIndex={-1} onClick={() => setOpen(false)} className="fixed inset-0 z-10 cursor-default" />
+        )}
+        <div
+          className="relative z-20 flex h-[54px] items-stretch overflow-hidden rounded-xl border transition-shadow duration-200"
+          style={{
+            background: "#fff",
+            borderColor: active ? "var(--color-gold)" : "var(--color-line)",
+            boxShadow: active ? "0 0 0 3px rgba(181,138,60,0.16)" : "none",
+          }}
+        >
+          <button
+            type="button"
+            onClick={() => setOpen((o) => !o)}
+            aria-label="Select country code"
+            className="flex items-center gap-2 pl-[16px] pr-[12px] transition-colors duration-150 hover:bg-[#FBF7EC]"
+          >
+            <motion.span animate={{ scale: open ? 1.12 : 1 }} transition={{ type: "spring", stiffness: 420, damping: 16 }} className="text-[19px] leading-none">
+              {country.flag}
+            </motion.span>
+            <span style={{ fontFamily: "var(--font-label)", fontWeight: 600, fontSize: 15, color: "#1C2536" }}>{country.dial}</span>
+            <motion.svg animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }} width="11" height="11" viewBox="0 0 12 12" fill="none">
+              <path d="M3 4.5L6 7.5L9 4.5" stroke="#876320" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+            </motion.svg>
+          </button>
+          <span className="my-3 w-px shrink-0" style={{ background: "var(--color-line)" }} />
+          <span className="flex flex-1 items-center gap-2.5 pl-3 pr-[18px]">
+            <svg width="16" height="16" viewBox="0 0 17 17" fill="none" className="shrink-0">
+              <path d="M5.2 3.1c.35-.3.9-.25 1.15.16l1 1.65c.2.33.16.75-.1 1.03l-.78.82c-.1.1-.12.27-.04.4.45.83 1.5 1.9 2.35 2.36.13.07.3.05.4-.05l.8-.8c.28-.27.7-.32 1.03-.12l1.66 1c.42.25.48.82.16 1.16l-.85.9c-.5.52-1.24.72-1.95.5C7.9 12.7 4.3 9.1 3.4 6.2c-.22-.72-.02-1.46.5-1.96l.9-.85.4-.3z" stroke="#876320" strokeWidth="1.05" strokeLinejoin="round" />
+            </svg>
+            <input
+              type="tel"
+              inputMode="numeric"
+              autoComplete="tel-national"
+              value={display}
+              onChange={(e) => setDigits(e.target.value.replace(/\D/g, ""))}
+              onFocus={() => setFocused(true)}
+              onBlur={() => setFocused(false)}
+              placeholder={country.dial === "+1" ? "(617) 555-0142" : "612 345 678"}
+              className="w-full bg-transparent text-[16px] outline-none placeholder:text-[#9A9486]"
+              style={{ color: "#1C2536" }}
+            />
+          </span>
+        </div>
+
+        <AnimatePresence>
+          {open && (
+            <motion.ul
+              initial={{ opacity: 0, y: 8, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 6, scale: 0.98 }}
+              transition={{ duration: 0.18, ease }}
+              className="absolute left-0 top-[60px] z-30 max-h-[284px] w-[300px] overflow-auto rounded-2xl border p-1.5 max-md:w-[calc(100vw-3rem)]"
+              style={{ background: "#fff", borderColor: "var(--color-line)", boxShadow: "0 20px 54px rgba(22,35,59,0.18), 0 2px 8px rgba(22,35,59,0.06)" }}
+            >
+              {COUNTRIES.map((c, i) => {
+                const isSel = c.code === country.code;
+                return (
+                  <motion.li key={c.code} initial={{ opacity: 0, x: -6 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.02 * i, duration: 0.2 }}>
+                    <button
+                      type="button"
+                      onClick={() => { setCountry(c); setOpen(false); setFocused(true); }}
+                      className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left transition-colors duration-150 hover:bg-[#FBF7EC]"
+                      style={{ background: isSel ? "rgba(181,138,60,0.10)" : "transparent" }}
+                    >
+                      <span className="text-[19px] leading-none">{c.flag}</span>
+                      <span className="flex-1 truncate" style={{ fontSize: 15, color: "#1C2536" }}>{c.name}</span>
+                      <span style={{ fontFamily: "var(--font-label)", fontWeight: 600, fontSize: 14, color: "var(--color-graphite)" }}>{c.dial}</span>
+                      {isSel && <svg width="14" height="14" viewBox="0 0 13 13" fill="none"><path d="M2.5 6.7l2.6 2.6L10.7 3.7" stroke="#876320" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>}
+                    </button>
+                  </motion.li>
+                );
+              })}
+            </motion.ul>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}
+
 export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -64,15 +189,15 @@ export default function Contact() {
                 <span style={{ fontSize: 16, color: "var(--color-cream)" }}>hello@cellcontext.com</span>
               </span>
             </a>
-            <div className="flex items-center gap-3.5">
+            <a href="tel:+16175550142" className="flex items-center gap-3.5">
               <span className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-full" style={{ border: "1px solid rgba(203,169,104,0.45)" }}>
-                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M8.5 15s5-4.2 5-8.2A5 5 0 003.5 6.8c0 4 5 8.2 5 8.2z" stroke="#CBA968" strokeWidth="1.2" strokeLinejoin="round" /><circle cx="8.5" cy="6.8" r="1.7" stroke="#CBA968" strokeWidth="1.2" /></svg>
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M5.4 3.2c.35-.3.9-.25 1.15.16l1 1.65c.2.33.16.75-.1 1.03l-.78.82c-.1.1-.12.27-.04.4.45.83 1.5 1.9 2.35 2.36.13.07.3.05.4-.05l.8-.8c.28-.27.7-.32 1.03-.12l1.66 1c.42.25.48.82.16 1.16l-.85.9c-.5.52-1.24.72-1.95.5C8.1 12.7 4.5 9.1 3.6 6.2c-.22-.72-.02-1.46.5-1.96l1.3-1.04z" stroke="#CBA968" strokeWidth="1.2" strokeLinejoin="round" /></svg>
               </span>
               <span className="flex flex-col gap-0.5">
-                <span style={{ fontFamily: "var(--font-label)", fontWeight: 600, fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--color-cream-dim)" }}>Studio</span>
-                <span style={{ fontSize: 16, color: "var(--color-cream)" }}>Boston, Massachusetts</span>
+                <span style={{ fontFamily: "var(--font-label)", fontWeight: 600, fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--color-cream-dim)" }}>Phone</span>
+                <span style={{ fontSize: 16, color: "var(--color-cream)" }}>+1 (617) 555&#8209;0142</span>
               </span>
-            </div>
+            </a>
           </div>
 
           <div className="mt-auto flex flex-col gap-3.5 pt-14 max-md:hidden" style={{ borderTop: "1px solid rgba(239,231,215,0.16)" }}>
@@ -166,6 +291,8 @@ export default function Contact() {
                   />
                 </span>
               </label>
+
+              <PhoneField />
 
               <div className="flex flex-col gap-3 pb-4">
                 <span style={{ fontFamily: "var(--font-label)", fontWeight: 500, fontSize: 15, color: "var(--color-ink)" }}>I’m reaching out as a…</span>

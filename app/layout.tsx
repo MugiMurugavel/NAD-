@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import FitToWidth from "./components/FitToWidth";
+import ScrollProgress from "./components/ScrollProgress";
 import { NavigationMinimal } from "@/components/nav-minimal";
 
 // Set the fit scale before first paint so the design never flashes oversized.
@@ -37,6 +38,7 @@ export default function RootLayout({
           {fitScript}
         </Script>
         <FitToWidth />
+        <ScrollProgress />
         <NavigationMinimal />
         {children}
       </body>

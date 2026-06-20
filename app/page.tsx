@@ -10,33 +10,23 @@ import Reveal from "./components/Reveal";
 export default function Home() {
   return (
       <main className="artboard">
+        {/* Hero keeps the simple block reveal; every other section now
+            self-reveals with its own staggered entrance choreography. */}
         <Reveal y={20}>
           <Hero />
         </Reveal>
         <div id="problem">
-          <Reveal>
-            <Problem />
-          </Reveal>
+          <Problem />
         </div>
-        <Reveal>
-          <Ghost />
-        </Reveal>
+        <Ghost />
         <div id="trial">
-          <Reveal>
-            <Proof />
-          </Reveal>
+          <Proof />
         </div>
         <div id="science">
-          <Reveal>
-            <Mechanism />
-          </Reveal>
+          <Mechanism />
         </div>
-        <Reveal>
-          <Boundaries />
-        </Reveal>
-        <Reveal>
-          <CTA />
-        </Reveal>
+        <Boundaries />
+        <CTA />
       </main>
   );
 }
