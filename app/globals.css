@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Cell Context — design tokens (exported from Paper)
+   The exported JSX uses these as inline CSS variables, so they
+   are declared on :root for global resolution.
+   ============================================================ */
+:root {
+  --color-ivory: #f4eddf;
+  --color-parchment: #eae0cd;
+  --color-ink: #16233b;
+  --color-ink-soft: #2c3c5a;
+  --color-ink-deep: #101b2d;
+  --color-graphite: #564f43;
+  --color-line: rgb(22 35 59 / 14%);
+  --color-cream: #efe7d7;
+  --color-cream-dim: rgb(239 231 215 / 62%);
+  --color-line-dark: rgb(239 231 215 / 16%);
+  --color-gold: #b58a3c;
+  --color-gold-soft: #cba968;
+  --color-gold-deep: #876320;
+  --color-cell: #3f6da1;
+  --color-cell-glow: #8fb4d8;
+  --color-cell-bright: #8fb7e0;
+  --color-cell-mid: #3a6699;
+  --color-cell-deep: #0e1b30;
+  --color-coral: #c5634a;
+
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --font-quote: "Newsreader", serif;
+
+  --text-eyebrow: 13px;
+  --text-caption: 14px;
+  --text-body: 17px;
+  --text-body-lg: 20px;
+  --text-h4: 24px;
+  --text-h3: 34px;
+  --text-h2: 52px;
+  --text-display: 96px;
+  --text-display-xl: 120px;
+  --text-data: 150px;
+  --text-mono: 12px;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.18em;
+  --tracking-wider: 0.3em;
+  --tracking-mono: 0.16em;
+
+  --leading-display: 90px;
+  --leading-heading: 56px;
+  --leading-body: 30px;
+
+  --container-page: 1200px;
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 64px;
+  --space-2xl: 96px;
+  --space-section: 128px;
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+
+  /* shadcn / cult-ui theme bridge — mapped to the Cell Context palette
+     so the marketing nav renders in-brand. */
+  --background: 43 39% 92%; /* ivory */
+  --foreground: 217 46% 16%; /* ink */
+  --muted: 42 30% 85%; /* parchment */
+  --muted-foreground: 38 13% 30%; /* graphite */
+  --accent: 38 47% 60%; /* gold-soft */
+  --border: 40 22% 78%; /* warm hairline */
+  --radius: 10px;
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-border: hsl(var(--border));
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
+}
+
+/* Smooth in-page anchor scrolling, offset for the fixed nav. */
+html {
+  scroll-behavior: smooth;
+}
+[id] {
+  scroll-margin-top: 96px;
+}
+
+body {
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* The Paper artboards are a fixed 1440px composition. We scale the whole
+   thing down with `zoom` (set by <FitToWidth/>) so it always fits the
+   viewport width on laptops / tablets — no horizontal overflow. */
+/* Mobile-first: the canvas is fluid (full width, no scaling) and the
+   dedicated responsive section layouts flow at real size. */
+.artboard {
+  width: 100%;
+  margin-inline: auto;
+}
+
+/* Tablet / desktop: switch to the fixed 1440px composition, scaled to fit
+   the viewport width via `zoom` (set by <FitToWidth/>). */
+@media (min-width: 768px) {
+  .artboard {
+    width: 1440px;
+    zoom: var(--fit-scale, 1);
+  }
+}
