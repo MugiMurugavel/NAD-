@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const INTERESTS = ["Curious customer", "Practitioner", "Press", "Partnership"];
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -36,13 +36,18 @@ function formatPhone(dial: string, raw: string) {
  * Phone input with a flag/dial-code selector and live formatting. Self-contained
  * (remounts with the form on reset, so internal state clears for free).
  */
-function PhoneField() {
+function PhoneField({ onChange }: { onChange?: (value: string) => void }) {
   const [country, setCountry] = useState<Country>(COUNTRIES[0]);
   const [digits, setDigits] = useState("");
   const [open, setOpen] = useState(false);
   const [focused, setFocused] = useState(false);
   const display = formatPhone(country.dial, digits);
   const active = focused || open;
+
+  // Report the full E.164-ish number up to the form (empty when blank).
+  useEffect(() => {
+    onChange?.(digits ? `${country.dial} ${display}` : "");
+  }, [country, digits, display, onChange]);
 
   return (
     <div className="flex flex-col gap-[9px] pb-4">
@@ -134,19 +139,41 @@ function PhoneField() {
 export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [interest, setInterest] = useState<string>("Curious customer");
   const [message, setMessage] = useState("");
   const [consent, setConsent] = useState(false);
   const [touched, setTouched] = useState(false);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+  const [hp, setHp] = useState(""); // honeypot
 
   const emailOk = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
   const valid = name.trim().length > 1 && emailOk && consent;
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setTouched(true);
-    if (valid) setSent(true);
+    setError("");
+    if (!valid || sending) return;
+    setSending(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone, interest, message, consent, company: hp }),
+      });
+      if (!res.ok) {
+        const data = (await res.json().catch(() => ({}))) as { error?: string };
+        throw new Error(data.error || "Something went wrong. Please try again.");
+      }
+      setSent(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   const inputBase =
@@ -180,22 +207,22 @@ export default function Contact() {
           </p>
 
           <div className="flex flex-col gap-5 pt-12">
-            <a href="mailto:hello@cellcontext.com" className="flex items-center gap-3.5">
+            <a href="mailto:msl@lnad-med.science" className="flex items-center gap-3.5">
               <span className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-full" style={{ border: "1px solid rgba(203,169,104,0.45)" }}>
                 <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="2" y="3.5" width="13" height="10" rx="2" stroke="#CBA968" strokeWidth="1.2" /><path d="M2.5 4.5l6 4 6-4" stroke="#CBA968" strokeWidth="1.2" /></svg>
               </span>
               <span className="flex flex-col gap-0.5">
                 <span style={{ fontFamily: "var(--font-label)", fontWeight: 600, fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--color-cream-dim)" }}>Email</span>
-                <span style={{ fontSize: 16, color: "var(--color-cream)" }}>hello@cellcontext.com</span>
+                <span style={{ fontSize: 16, color: "var(--color-cream)" }}>msl@lnad-med.science</span>
               </span>
             </a>
-            <a href="tel:+16175550142" className="flex items-center gap-3.5">
+            <a href="tel:+16176403681" className="flex items-center gap-3.5">
               <span className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-full" style={{ border: "1px solid rgba(203,169,104,0.45)" }}>
                 <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><path d="M5.4 3.2c.35-.3.9-.25 1.15.16l1 1.65c.2.33.16.75-.1 1.03l-.78.82c-.1.1-.12.27-.04.4.45.83 1.5 1.9 2.35 2.36.13.07.3.05.4-.05l.8-.8c.28-.27.7-.32 1.03-.12l1.66 1c.42.25.48.82.16 1.16l-.85.9c-.5.52-1.24.72-1.95.5C8.1 12.7 4.5 9.1 3.6 6.2c-.22-.72-.02-1.46.5-1.96l1.3-1.04z" stroke="#CBA968" strokeWidth="1.2" strokeLinejoin="round" /></svg>
               </span>
               <span className="flex flex-col gap-0.5">
                 <span style={{ fontFamily: "var(--font-label)", fontWeight: 600, fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--color-cream-dim)" }}>Phone</span>
-                <span style={{ fontSize: 16, color: "var(--color-cream)" }}>+1 (617) 555&#8209;0142</span>
+                <span style={{ fontSize: 16, color: "var(--color-cream)" }}>+1 (617) 640&#8209;3681</span>
               </span>
             </a>
           </div>
@@ -236,7 +263,7 @@ export default function Contact() {
                 Your note is in. Our team reads every message and will be in touch within two business days.
               </p>
               <button
-                onClick={() => { setSent(false); setName(""); setEmail(""); setMessage(""); setConsent(false); setTouched(false); }}
+                onClick={() => { setSent(false); setName(""); setEmail(""); setPhone(""); setMessage(""); setConsent(false); setTouched(false); setError(""); }}
                 className="mt-8 text-[15px] underline-offset-4 transition-opacity hover:opacity-70"
                 style={{ fontFamily: "var(--font-label)", fontWeight: 500, color: "var(--color-gold-deep)", textDecoration: "underline" }}
               >
@@ -260,6 +287,18 @@ export default function Contact() {
               <p className="pb-6 pt-2" style={{ fontSize: 16, color: "var(--color-graphite)", margin: 0 }}>
                 We read every message. Expect a reply within two business days.
               </p>
+
+              {/* Honeypot — hidden from users, catches bots. */}
+              <input
+                type="text"
+                name="company"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                value={hp}
+                onChange={(e) => setHp(e.target.value)}
+                className="pointer-events-none absolute -left-[9999px] h-0 w-0 opacity-0"
+              />
 
               <label className="flex flex-col gap-[9px] pb-4">
                 <span style={{ fontFamily: "var(--font-label)", fontWeight: 500, fontSize: 15, color: "var(--color-ink)" }}>Full name</span>
@@ -292,7 +331,7 @@ export default function Contact() {
                 </span>
               </label>
 
-              <PhoneField />
+              <PhoneField onChange={setPhone} />
 
               <div className="flex flex-col gap-3 pb-4">
                 <span style={{ fontFamily: "var(--font-label)", fontWeight: 500, fontSize: 15, color: "var(--color-ink)" }}>I’m reaching out as a…</span>
@@ -349,13 +388,18 @@ export default function Contact() {
               <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.015 }}
-                  whileTap={{ scale: 0.985 }}
-                  className="inline-flex items-center justify-center gap-2.5 rounded-full px-[38px] py-[18px] text-[16px] transition-shadow duration-300 hover:shadow-[0_12px_34px_rgba(22,35,59,0.22)]"
+                  disabled={sending}
+                  whileHover={sending ? undefined : { scale: 1.015 }}
+                  whileTap={sending ? undefined : { scale: 0.985 }}
+                  className="inline-flex items-center justify-center gap-2.5 rounded-full px-[38px] py-[18px] text-[16px] transition-shadow duration-300 hover:shadow-[0_12px_34px_rgba(22,35,59,0.22)] disabled:cursor-wait disabled:opacity-80"
                   style={{ fontFamily: "var(--font-label)", fontWeight: 600, background: "var(--color-ink)", color: "var(--color-cream)" }}
                 >
-                  Send message
-                  <svg width="17" height="17" viewBox="0 0 16 16" fill="none"><path d="M3 8h9M8.5 4l4 4-4 4" stroke="#EFE7D7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  {sending ? "Sending…" : "Send message"}
+                  {sending ? (
+                    <svg className="animate-spin" width="17" height="17" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#EFE7D7" strokeOpacity="0.3" strokeWidth="1.8" /><path d="M14 8a6 6 0 00-6-6" stroke="#EFE7D7" strokeWidth="1.8" strokeLinecap="round" /></svg>
+                  ) : (
+                    <svg width="17" height="17" viewBox="0 0 16 16" fill="none"><path d="M3 8h9M8.5 4l4 4-4 4" stroke="#EFE7D7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  )}
                 </motion.button>
                 <span className="flex items-center gap-2" style={{ fontSize: 14, color: "var(--color-graphite)" }}>
                   <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="3" y="6.5" width="9" height="6.5" rx="1.4" stroke="#876320" strokeWidth="1.1" /><path d="M5 6.5V5a2.5 2.5 0 015 0v1.5" stroke="#876320" strokeWidth="1.1" /></svg>
@@ -373,6 +417,23 @@ export default function Contact() {
                     style={{ fontSize: 14, color: "var(--color-coral)" }}
                   >
                     Please add your name, a valid email, and agree to be contacted.
+                  </motion.p>
+                )}
+              </AnimatePresence>
+
+              <AnimatePresence>
+                {error && (
+                  <motion.p
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="overflow-hidden pt-4"
+                    style={{ fontSize: 14, color: "var(--color-coral)" }}
+                  >
+                    {error} You can also reach us at{" "}
+                    <a href="mailto:msl@lnad-med.science" style={{ color: "var(--color-gold-deep)", textDecoration: "underline" }}>
+                      msl@lnad-med.science
+                    </a>.
                   </motion.p>
                 )}
               </AnimatePresence>
