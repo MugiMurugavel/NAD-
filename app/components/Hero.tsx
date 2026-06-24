@@ -60,7 +60,7 @@ export default function Hero() {
               <path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="#EFE7D7" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </motion.a>
-          <motion.a href="#science" className="cursor-pointer" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 400, damping: 26 }} style={{ alignItems: 'center', borderBottomColor: 'var(--color-line)', borderBottomStyle: 'solid', borderBottomWidth: '1px', boxSizing: 'border-box', display: 'flex', paddingBlock: '17px', paddingInline: '4px' }}>
+          <motion.a href="#how" className="cursor-pointer" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 400, damping: 26 }} style={{ alignItems: 'center', borderBottomColor: 'var(--color-line)', borderBottomStyle: 'solid', borderBottomWidth: '1px', boxSizing: 'border-box', display: 'flex', paddingBlock: '17px', paddingInline: '4px' }}>
             <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-label)', fontSize: '16px', fontWeight: 500, lineHeight: '20px', whiteSpaceCollapse: 'preserve' }}>
               How LNAD⁺ works
             </div>

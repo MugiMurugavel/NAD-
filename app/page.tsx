@@ -6,12 +6,14 @@ import Mechanism from "./components/Mechanism";
 import Boundaries from "./components/Boundaries";
 import CTA from "./components/CTA";
 import Reveal from "./components/Reveal";
+import Journey from "./components/Journey";
 
 export default function Home() {
   return (
-      <main className="artboard">
-        {/* Hero keeps the simple block reveal; every other section now
-            self-reveals with its own staggered entrance choreography. */}
+    <main>
+      {/* Hero keeps the simple block reveal; every other section now
+          self-reveals with its own staggered entrance choreography. */}
+      <div className="artboard">
         <Reveal y={20}>
           <Hero />
         </Reveal>
@@ -19,6 +21,13 @@ export default function Home() {
           <Problem />
         </div>
         <Ghost />
+      </div>
+      {/* Full-bleed, fluid pinned-scroll sequence — rendered OUTSIDE the
+          zoom-scaled artboard so the sticky pin works and it stays responsive. */}
+      <div id="how">
+        <Journey />
+      </div>
+      <div className="artboard">
         <div id="trial">
           <Proof />
         </div>
@@ -27,6 +36,7 @@ export default function Home() {
         </div>
         <Boundaries />
         <CTA />
-      </main>
+      </div>
+    </main>
   );
 }
