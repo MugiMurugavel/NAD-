@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
-import FitToWidth from "./components/FitToWidth";
 import ScrollProgress from "./components/ScrollProgress";
 import { NavigationMinimal } from "@/components/nav-minimal";
-
-// Set the fit scale before first paint so the design never flashes oversized.
-const fitScript = `(function(){try{var w=window.innerWidth;document.documentElement.style.setProperty('--fit-scale',String(w>=768?Math.min(1,w/1440):1));}catch(e){}})();`;
 
 export const metadata: Metadata = {
   title: "Cell Context — LNAD⁺",
@@ -34,10 +29,6 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Script id="fit-scale" strategy="beforeInteractive">
-          {fitScript}
-        </Script>
-        <FitToWidth />
         <ScrollProgress />
         <NavigationMinimal />
         {children}

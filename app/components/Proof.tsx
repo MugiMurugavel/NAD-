@@ -5,7 +5,7 @@ import { sectionContainer, sectionItem } from "./Reveal";
 
 export default function Proof() {
   return (
-    <div className="max-md:!px-5 max-md:!py-14" style={{ alignItems: 'center', backgroundColor: 'var(--color-ivory)', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', fontSize: '12px', fontSynthesis: 'none', lineHeight: '16px', MozOsxFontSmoothing: 'grayscale', overflow: 'clip', paddingBlock: '128px', paddingInline: '60px', position: 'relative', WebkitFontSmoothing: 'antialiased', width: '100%' }}>
+    <div className="max-md:!px-5 max-md:!py-14" style={{ alignItems: 'center', backgroundColor: 'var(--color-ivory)', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', fontSize: '12px', fontSynthesis: 'none', lineHeight: '16px', MozOsxFontSmoothing: 'grayscale', overflow: 'clip', paddingBlock: 'clamp(56px, 8.9vw, 128px)', paddingInline: '0px', position: 'relative', WebkitFontSmoothing: 'antialiased', width: '100%' }}>
       <div style={{ bottom: '0px', boxSizing: 'border-box', left: '0px', overflow: 'clip', position: 'absolute', right: '0px', top: '0px' }}>
         <svg width="1440" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style={{ top: '0px', right: '0px', bottom: '0px', left: '0px', rotate: '-22deg', position: 'absolute', transformOrigin: '0% 0%' }}>
           <ellipse cx="430" cy="440" rx="720" ry="300" transform="rotate(-14 430 440)" fill="none" stroke="#B58A3C1F" style={{ strokeOpacity: '0.32', stroke: 'rgb(181, 138, 60)' }} />
@@ -23,7 +23,7 @@ export default function Proof() {
         </div>
       </div>
       <motion.div variants={sectionContainer} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-15% 0px -10% 0px" }} style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', maxWidth: '1180px', position: 'relative', width: '100%' }}>
-        <motion.div variants={sectionItem} className="max-md:!flex-col max-md:!gap-10 max-md:!items-start" style={{ alignItems: 'flex-end', boxSizing: 'border-box', display: 'flex', gap: '48px', justifyContent: 'space-between', paddingBottom: '62px' }}>
+        <motion.div variants={sectionItem} className="max-md:!flex-col max-md:!gap-10 max-md:!items-start" style={{ alignItems: 'flex-end', boxSizing: 'border-box', display: 'flex', gap: 'clamp(40px, 7.1vw, 48px)', justifyContent: 'space-between', paddingBottom: 'clamp(40px, 9.2vw, 62px)' }}>
           <div className="max-md:!max-w-full" style={{ alignItems: 'flex-start', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', maxWidth: '700px' }}>
             <div style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', gap: '13px', paddingBottom: '28px' }}>
               <div style={{ backgroundColor: 'var(--color-gold)', boxSizing: 'border-box', flexShrink: '0', height: '1px', width: '30px' }} />
@@ -32,40 +32,40 @@ export default function Proof() {
               </div>
             </div>
             <div style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column' }}>
-              <div className="max-md:!text-[30px] max-md:!leading-[32px]" style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '60px', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '60px' }}>
+              <div className="max-md:!text-[30px] max-md:!leading-[32px]" style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(30px, calc(30px + 30 * (100vw - 768px) / 672), 60px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 'clamp(32px, calc(32px + 28 * (100vw - 768px) / 672), 60px)' }}>
                 Measured inside the cell.
               </div>
               <div style={{ alignItems: 'baseline', boxSizing: 'border-box', display: 'flex', gap: '16px' }}>
-                <div className="max-md:!text-[30px] max-md:!leading-[34px]" style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '60px', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '66px' }}>
+                <div className="max-md:!text-[30px] max-md:!leading-[34px]" style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(30px, calc(30px + 30 * (100vw - 768px) / 672), 60px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 'clamp(34px, calc(34px + 32 * (100vw - 768px) / 672), 66px)' }}>
                   In just
                 </div>
-                <div className="max-md:!text-[30px] max-md:!leading-[34px]" style={{ boxSizing: 'border-box', color: 'var(--color-gold-deep)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '62px', fontStyle: 'italic', fontWeight: 500, lineHeight: '66px' }}>
+                <div className="max-md:!text-[30px] max-md:!leading-[34px]" style={{ boxSizing: 'border-box', color: 'var(--color-gold-deep)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(30px, calc(30px + 32 * (100vw - 768px) / 672), 62px)', fontStyle: 'italic', fontWeight: 500, lineHeight: 'clamp(34px, calc(34px + 32 * (100vw - 768px) / 672), 66px)' }}>
                   five days.
                 </div>
               </div>
             </div>
           </div>
           <div className="max-md:!max-w-full" style={{ boxSizing: 'border-box', fontFamily: 'var(--font-body)', maxWidth: '300px', paddingBottom: '8px' }}>
-            <div className="max-md:!justify-start max-md:!text-left" style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', display: 'flex', flexWrap: 'wrap', fontFamily: 'var(--font-body)', fontSize: '17px', justifyContent: 'end', lineHeight: '27px', textAlign: 'right', whiteSpaceCollapse: 'preserve' }}>
+            <div className="max-md:!justify-start max-md:!text-left" style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', display: 'flex', flexWrap: 'wrap', fontFamily: 'var(--font-body)', fontSize: 'clamp(15px, calc(15px + 2 * (100vw - 768px) / 672), 17px)', justifyContent: 'end', lineHeight: 'clamp(24px, calc(24px + 3 * (100vw - 768px) / 672), 27px)', textAlign: 'right', whiteSpaceCollapse: 'preserve' }}>
               A short, mechanism-of-action study built to ask one question: did NAD⁺ biology actually change inside the cell?
             </div>
           </div>
         </motion.div>
-        <motion.div variants={sectionItem} className="max-md:!flex-col max-md:!gap-10" style={{ boxSizing: 'border-box', display: 'flex', gap: '56px', width: '100%' }}>
-          <div className="max-md:!w-full max-md:!shrink" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', flexShrink: '0', justifyContent: 'center', width: '440px' }}>
+        <motion.div variants={sectionItem} className="max-md:!flex-col max-md:!gap-10" style={{ boxSizing: 'border-box', display: 'flex', gap: 'clamp(40px, 8.3vw, 56px)', width: '100%' }}>
+          <div className="max-md:!w-full max-md:!shrink" style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', flexShrink: '0', justifyContent: 'center', width: '100%', maxWidth: '440px' }}>
             <div style={{ alignItems: 'flex-start', boxSizing: 'border-box', display: 'flex' }}>
-              <div className="max-md:!text-[44px] max-md:!leading-[78px]" style={{ boxSizing: 'border-box', color: 'var(--color-gold)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '90px', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '150px' }}>
+              <div className="max-md:!text-[44px] max-md:!leading-[78px]" style={{ boxSizing: 'border-box', color: 'var(--color-gold)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(44px, calc(44px + 46 * (100vw - 768px) / 672), 90px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 'clamp(78px, calc(78px + 72 * (100vw - 768px) / 672), 150px)' }}>
                 +
               </div>
-              <div className="max-md:!text-[88px] max-md:!leading-[82px]" style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '190px', fontWeight: 500, letterSpacing: '-0.03em', lineHeight: '158px' }}>
+              <div className="max-md:!text-[88px] max-md:!leading-[82px]" style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(88px, calc(88px + 102 * (100vw - 768px) / 672), 190px)', fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 'clamp(82px, calc(82px + 76 * (100vw - 768px) / 672), 158px)' }}>
                 <CountUp to={53} duration={1.7} />
               </div>
-              <div className="max-md:!text-[44px] max-md:!leading-[62px]" style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '90px', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '120px' }}>
+              <div className="max-md:!text-[44px] max-md:!leading-[62px]" style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(44px, calc(44px + 46 * (100vw - 768px) / 672), 90px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 'clamp(62px, calc(62px + 58 * (100vw - 768px) / 672), 120px)' }}>
                 %
               </div>
             </div>
             <div className="max-md:!max-w-full" style={{ boxSizing: 'border-box', fontFamily: 'var(--font-body)', maxWidth: '380px', paddingTop: '36px' }}>
-              <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', fontFamily: 'var(--font-body)', fontSize: '18px', lineHeight: '28px' }}>
+              <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', fontFamily: 'var(--font-body)', fontSize: 'clamp(16px, calc(16px + 2 * (100vw - 768px) / 672), 18px)', lineHeight: 'clamp(24px, calc(24px + 4 * (100vw - 768px) / 672), 28px)' }}>
                 Increase in intracellular NAD⁺ (icNAD⁺) by Day 6 versus baseline, in the LNAD⁺ arm.
               </div>
             </div>
@@ -79,11 +79,11 @@ export default function Proof() {
                 treatment × time
               </div>
             </div>
-            <div className="max-md:!w-full" style={{ alignItems: 'center', borderTopColor: 'var(--color-line)', borderTopStyle: 'solid', borderTopWidth: '1px', boxSizing: 'border-box', display: 'flex', gap: '12px', paddingTop: '26px', width: '380px' }}>
-              <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '34px', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '30px' }}>
+            <div className="max-md:!w-full" style={{ alignItems: 'center', borderTopColor: 'var(--color-line)', borderTopStyle: 'solid', borderTopWidth: '1px', boxSizing: 'border-box', display: 'flex', gap: '12px', paddingTop: '26px', width: '100%', maxWidth: '380px' }}>
+              <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, calc(24px + 10 * (100vw - 768px) / 672), 34px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 'clamp(22px, calc(22px + 8 * (100vw - 768px) / 672), 30px)' }}>
                 −4.5%
               </div>
-              <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', display: 'inline-block', fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: '21px', whiteSpaceCollapse: 'preserve' }}>
+              <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', display: 'inline-block', fontFamily: 'var(--font-body)', fontSize: 'clamp(14px, calc(14px + 2 * (100vw - 768px) / 672), 16px)', lineHeight: 'clamp(19px, calc(19px + 2 * (100vw - 768px) / 672), 21px)', whiteSpaceCollapse: 'preserve' }}>
                 placebo, over the same five days
               </div>
             </div>
@@ -152,9 +152,9 @@ export default function Proof() {
             </div>
           </motion.div>
         </motion.div>
-        <motion.div variants={sectionItem} className="max-md:!flex-col max-md:!gap-8" style={{ boxSizing: 'border-box', display: 'flex', paddingTop: '56px', width: '100%' }}>
+        <motion.div variants={sectionItem} className="max-md:!flex-col max-md:!gap-8" style={{ boxSizing: 'border-box', display: 'flex', paddingTop: 'clamp(36px, 8.3vw, 56px)', width: '100%' }}>
           <motion.div className="max-md:!w-full max-md:!pr-0 cursor-default" whileHover={{ y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 28 }} style={{ boxSizing: 'border-box', display: 'flex', flexBasis: '0%', flexDirection: 'column', flexGrow: '1', gap: '8px', paddingRight: '32px' }}>
-            <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '46px', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '46px' }}>
+            <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(29px, calc(29px + 17 * (100vw - 768px) / 672), 46px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 'clamp(29px, calc(29px + 17 * (100vw - 768px) / 672), 46px)' }}>
               N = 51
             </div>
             <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', display: 'inline-block', fontFamily: 'var(--font-label)', fontSize: '13px', fontWeight: 500, letterSpacing: '0.14em', lineHeight: '17px', textTransform: 'uppercase', whiteSpace: 'pre-wrap', whiteSpaceCollapse: 'preserve' }}>
@@ -162,7 +162,7 @@ export default function Proof() {
             </div>
           </motion.div>
           <motion.div className="max-md:!w-full max-md:!px-0 max-md:!border-l-0 max-md:!border-t max-md:!pt-8 cursor-default" whileHover={{ y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 28 }} style={{ borderLeftColor: 'var(--color-line)', borderLeftStyle: 'solid', borderLeftWidth: '1px', boxSizing: 'border-box', display: 'flex', flexBasis: '0%', flexDirection: 'column', flexGrow: '1', gap: '8px', paddingInline: '32px' }}>
-            <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '46px', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '46px' }}>
+            <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(29px, calc(29px + 17 * (100vw - 768px) / 672), 46px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 'clamp(29px, calc(29px + 17 * (100vw - 768px) / 672), 46px)' }}>
               46–72
             </div>
             <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', display: 'inline-block', fontFamily: 'var(--font-label)', fontSize: '13px', fontWeight: 500, letterSpacing: '0.14em', lineHeight: '17px', textTransform: 'uppercase', whiteSpace: 'pre-wrap', whiteSpaceCollapse: 'preserve' }}>
@@ -170,7 +170,7 @@ export default function Proof() {
             </div>
           </motion.div>
           <motion.div className="max-md:!w-full max-md:!px-0 max-md:!border-l-0 max-md:!border-t max-md:!pt-8 cursor-default" whileHover={{ y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 28 }} style={{ borderLeftColor: 'var(--color-line)', borderLeftStyle: 'solid', borderLeftWidth: '1px', boxSizing: 'border-box', display: 'flex', flexBasis: '0%', flexDirection: 'column', flexGrow: '1', gap: '8px', paddingInline: '32px' }}>
-            <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '46px', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '46px' }}>
+            <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(29px, calc(29px + 17 * (100vw - 768px) / 672), 46px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 'clamp(29px, calc(29px + 17 * (100vw - 768px) / 672), 46px)' }}>
               23 / 28
             </div>
             <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', display: 'inline-block', fontFamily: 'var(--font-label)', fontSize: '13px', fontWeight: 500, letterSpacing: '0.14em', lineHeight: '17px', textTransform: 'uppercase', whiteSpace: 'pre-wrap', whiteSpaceCollapse: 'preserve' }}>
@@ -178,7 +178,7 @@ export default function Proof() {
             </div>
           </motion.div>
           <motion.div className="max-md:!w-full max-md:!pl-0 max-md:!border-l-0 max-md:!border-t max-md:!pt-8 cursor-default" whileHover={{ y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 28 }} style={{ borderLeftColor: 'var(--color-line)', borderLeftStyle: 'solid', borderLeftWidth: '1px', boxSizing: 'border-box', display: 'flex', flexBasis: '0%', flexDirection: 'column', flexGrow: '1', gap: '8px', paddingLeft: '32px' }}>
-            <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '46px', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '46px' }}>
+            <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(29px, calc(29px + 17 * (100vw - 768px) / 672), 46px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 'clamp(29px, calc(29px + 17 * (100vw - 768px) / 672), 46px)' }}>
               5 days
             </div>
             <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', display: 'inline-block', fontFamily: 'var(--font-label)', fontSize: '13px', fontWeight: 500, letterSpacing: '0.14em', lineHeight: '17px', textTransform: 'uppercase', whiteSpace: 'pre-wrap', whiteSpaceCollapse: 'preserve' }}>

@@ -126,21 +126,26 @@ a {
   text-decoration: none;
 }
 
-/* The Paper artboards are a fixed 1440px composition. We scale the whole
-   thing down with `zoom` (set by <FitToWidth/>) so it always fits the
-   viewport width on laptops / tablets — no horizontal overflow. */
-/* Mobile-first: the canvas is fluid (full width, no scaling) and the
-   dedicated responsive section layouts flow at real size. */
+/* Fluid, centered container at all sizes. The artboard fills the viewport
+   up to a 1440px max-width and gets responsive horizontal gutters, so the
+   composition scales naturally without any `zoom`. */
 .artboard {
   width: 100%;
+  max-width: 1440px;
   margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 72px);
 }
 
-/* Tablet / desktop: switch to the fixed 1440px composition, scaled to fit
-   the viewport width via `zoom` (set by <FitToWidth/>). */
-@media (min-width: 768px) {
-  .artboard {
-    width: 1440px;
-    zoom: var(--fit-scale, 1);
+/* Journey scrollytelling on phones: the landscape instrument letterboxes into
+   a portrait viewport, so scale it up to fill (the empty side gutters crop) and
+   drop the right-edge depth HUD to keep the frame clean. */
+@media (max-width: 768px) {
+  .j-svg {
+    transform: scale(1.6);
+    transform-origin: 50% 52%;
+  }
+  /* inline display:flex on the HUD needs !important to override */
+  .j-hud {
+    display: none !important;
   }
 }

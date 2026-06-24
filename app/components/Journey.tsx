@@ -42,8 +42,8 @@ export default function Journey() {
   const payloadO = useTransform(p, [0, 0.02, 0.46, 0.52], [0, 1, 1, 0]);
   const payloadScale = useTransform(p, [0, 0.46, 0.52], [0.42, 0.42, 1]);
 
-  /* Camera dolly — gentle descent toward the cell, pull back on resolve */
-  const camScale = useTransform(p, [0, 0.34, 0.5, 0.84, 1], [1, 1.0, 1.32, 1.32, 1.0]);
+  /* Camera dolly — a *whisper* of a push so the cell never overruns the gauges */
+  const camScale = useTransform(p, [0, 0.34, 0.5, 0.84, 1], [1, 1.0, 1.05, 1.05, 1.0]);
 
   /* Structure opacities (all inputs within [0,1]) */
   const chassisO = useTransform(p, [0, 0.05, 1], [0, 1, 1]);
@@ -92,7 +92,7 @@ export default function Journey() {
         <div aria-hidden style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(${J.line} 1px, transparent 1px), linear-gradient(90deg, ${J.line} 1px, transparent 1px)`, backgroundSize: "clamp(40px,6vw,72px) clamp(40px,6vw,72px)", maskImage: "radial-gradient(125% 95% at 50% 45%, #000 38%, transparent 80%)", WebkitMaskImage: "radial-gradient(125% 95% at 50% 45%, #000 38%, transparent 80%)", opacity: 0.7 }} />
 
         {/* captions (fixed plate, crossfading) */}
-        <div style={{ position: "absolute", top: "clamp(96px,13vh,150px)", left: "clamp(20px,5vw,80px)", maxWidth: "min(420px,40vw)", zIndex: 5 }}>
+        <div className="j-cap" style={{ position: "absolute", top: "clamp(88px,12vh,140px)", left: "clamp(20px,5vw,80px)", maxWidth: "min(440px,78vw)", zIndex: 5 }}>
           {SCENES.map((s) => (
             <Caption key={s.id} p={p} range={s.range as [number, number]} k={s.k} t={s.t} />
           ))}
@@ -100,7 +100,7 @@ export default function Journey() {
 
         {/* ============================== STAGE ============================== */}
         <motion.div style={{ position: "absolute", inset: 0, opacity: diagramDim }}>
-          <svg viewBox={`0 0 ${VIEW.w} ${VIEW.h}`} width="100%" height="100%" preserveAspectRatio="xMidYMid meet" style={{ display: "block" }}>
+          <svg className="j-svg" viewBox={`0 0 ${VIEW.w} ${VIEW.h}`} width="100%" height="100%" preserveAspectRatio="xMidYMid meet" style={{ display: "block" }}>
             <defs>
               <radialGradient id="jCore" cx="50%" cy="46%" r="60%">
                 <stop offset="0%" stopColor={J.coral} stopOpacity="0.9" />
@@ -132,19 +132,19 @@ export default function Journey() {
 
             {/* ---- CHANNEL A — Circulating NAD⁺ (coral, flat forever) ---- */}
             <motion.g style={{ opacity: chAO }}>
-              <motion.path d="M 250 116 L 1010 116" fill="none" stroke={J.coral} strokeWidth={2.6} strokeLinecap="round" style={{ pathLength: chA }} />
-              <motion.circle cx={1010} cy={116} r={5} fill={J.coral} style={{ opacity: chA }} />
-              <text x={250} y={100} style={{ fontFamily: MONO, fontSize: 14, letterSpacing: "0.04em", fill: J.inkSoft }}>CIRCULATING NAD⁺</text>
-              <text x={1010} y={100} textAnchor="end" style={{ fontFamily: MONO, fontSize: 13, letterSpacing: "0.12em", fill: J.coral }}>UNCHANGED</text>
+              <motion.path d="M 360 116 L 840 116" fill="none" stroke={J.coral} strokeWidth={2.6} strokeLinecap="round" style={{ pathLength: chA }} />
+              <motion.circle cx={840} cy={116} r={5} fill={J.coral} style={{ opacity: chA }} />
+              <text x={360} y={100} style={{ fontFamily: MONO, fontSize: 13.5, letterSpacing: "0.04em", fill: J.inkSoft }}>CIRCULATING NAD⁺</text>
+              <text x={840} y={100} textAnchor="end" style={{ fontFamily: MONO, fontSize: 12.5, letterSpacing: "0.12em", fill: J.coral }}>UNCHANGED</text>
             </motion.g>
 
             {/* ---- CHANNEL B — Intracellular NAD⁺ (gold, rising) ---- */}
             <motion.g style={{ opacity: chBO }}>
-              <line x1={250} y1={700} x2={1010} y2={700} stroke={J.line} strokeWidth={1.2} />
-              <motion.path d="M 250 700 C 430 698 560 690 690 670 C 820 650 930 628 1010 606" fill="none" stroke={J.gold} strokeWidth={2.8} strokeLinecap="round" style={{ pathLength: chB }} />
-              <motion.circle cx={1010} cy={606} r={6} fill={J.gold} style={{ opacity: intraFill }} />
-              <motion.circle cx={1010} cy={606} r={16} fill={J.gold} style={{ opacity: chBHaloO }} />
-              <text x={250} y={684} style={{ fontFamily: MONO, fontSize: 14, letterSpacing: "0.04em", fill: J.goldDeep }}>INTRACELLULAR NAD⁺ · icNAD⁺</text>
+              <line x1={360} y1={700} x2={840} y2={700} stroke={J.line} strokeWidth={1.2} />
+              <motion.path d="M 360 700 C 470 698 560 688 620 672 C 720 648 790 626 840 606" fill="none" stroke={J.gold} strokeWidth={2.8} strokeLinecap="round" style={{ pathLength: chB }} />
+              <motion.circle cx={840} cy={606} r={6} fill={J.gold} style={{ opacity: intraFill }} />
+              <motion.circle cx={840} cy={606} r={16} fill={J.gold} style={{ opacity: chBHaloO }} />
+              <text x={360} y={684} style={{ fontFamily: MONO, fontSize: 13.5, letterSpacing: "0.04em", fill: J.goldDeep }}>INTRACELLULAR NAD⁺ · icNAD⁺</text>
             </motion.g>
 
             {/* ======================= CAMERA (science) ======================= */}
@@ -168,21 +168,21 @@ export default function Journey() {
 
                   {/* SCENE 3–5 — the cell */}
                   <motion.g style={{ opacity: cellO }}>
-                    <circle cx={CORE.x} cy={CORE.y} r={232} fill={J.paper} stroke={J.blue} strokeWidth={2.4} />
-                    <circle cx={CORE.x} cy={CORE.y} r={222} fill="none" stroke={J.blueGlow} strokeWidth={1.3} strokeDasharray="2 10" />
+                    <circle cx={CORE.x} cy={CORE.y} r={186} fill={J.paper} stroke={J.blue} strokeWidth={2.4} />
+                    <circle cx={CORE.x} cy={CORE.y} r={178} fill="none" stroke={J.blueGlow} strokeWidth={1.3} strokeDasharray="2 10" />
                   </motion.g>
                   {/* dark intracellular field — gold glows on it */}
-                  <motion.circle cx={CORE.x} cy={CORE.y} r={230} fill={J.inkDeep} style={{ opacity: darkO }} />
+                  <motion.circle cx={CORE.x} cy={CORE.y} r={184} fill={J.inkDeep} style={{ opacity: darkO }} />
 
                   {/* ambient gold orbital signature (static) behind nodes */}
                   <motion.g style={{ opacity: nodesO }}>
-                    <ellipse cx={CORE.x} cy={CORE.y} rx={250} ry={150} transform={`rotate(-14 ${CORE.x} ${CORE.y})`} fill="none" stroke={J.gold} strokeOpacity={0.22} />
-                    <ellipse cx={CORE.x} cy={CORE.y} rx={205} ry={236} transform={`rotate(12 ${CORE.x} ${CORE.y})`} fill="none" stroke={J.gold} strokeOpacity={0.14} />
+                    <ellipse cx={CORE.x} cy={CORE.y} rx={214} ry={128} transform={`rotate(-14 ${CORE.x} ${CORE.y})`} fill="none" stroke={J.gold} strokeOpacity={0.2} />
+                    <ellipse cx={CORE.x} cy={CORE.y} rx={176} ry={202} transform={`rotate(12 ${CORE.x} ${CORE.y})`} fill="none" stroke={J.gold} strokeOpacity={0.13} />
                   </motion.g>
 
                   {/* SCENE 4 — core bloom */}
                   <motion.g style={{ opacity: coreO }}>
-                    <motion.circle cx={CORE.x} cy={CORE.y} r={172} fill="url(#jCore)" style={{ scale: coreScale, transformBox: "fill-box", transformOrigin: "center" }} />
+                    <motion.circle cx={CORE.x} cy={CORE.y} r={150} fill="url(#jCore)" style={{ scale: coreScale, transformBox: "fill-box", transformOrigin: "center" }} />
                   </motion.g>
 
                   {/* SCENE 5 — downstream cascade */}
@@ -204,13 +204,13 @@ export default function Journey() {
           </svg>
 
           {/* big intracellular readout */}
-          <motion.div style={{ position: "absolute", left: "50%", top: "50%", x: "-50%", y: "-50%", opacity: bigPctO, fontFamily: DISPLAY, fontWeight: 500, fontSize: "clamp(40px,7vw,92px)", color: J.gold, textShadow: "0 2px 36px rgba(181,138,60,0.3)", pointerEvents: "none", letterSpacing: "-0.02em" }}>
+          <motion.div style={{ position: "absolute", left: "50%", top: "50%", x: "-50%", y: "-50%", opacity: bigPctO, fontFamily: DISPLAY, fontWeight: 500, fontSize: "clamp(44px,7.5vw,104px)", color: "#FFFFFF", textShadow: "0 2px 22px rgba(16,20,30,0.6), 0 0 64px rgba(181,138,60,0.6)", pointerEvents: "none", letterSpacing: "-0.02em" }}>
             <MotionPercent value={intraPct} />
           </motion.div>
         </motion.div>
 
         {/* ============================ DEPTH HUD ============================ */}
-        <div style={{ position: "absolute", right: "clamp(18px,3.5vw,54px)", top: "50%", transform: "translateY(-50%)", display: "flex", flexDirection: "column", gap: "clamp(14px,2.4vh,26px)", zIndex: 5 }}>
+        <div className="j-hud" style={{ position: "absolute", right: "clamp(18px,3.5vw,54px)", top: "50%", transform: "translateY(-50%)", display: "flex", flexDirection: "column", gap: "clamp(14px,2.4vh,26px)", zIndex: 5 }}>
           {STAGES.map((s, i) => (
             <HudLabel key={s} p={p} index={i} total={STAGES.length} label={s} />
           ))}
@@ -258,7 +258,7 @@ function Caption({ p, range, k, t }: { p: MotionValue<number>; range: [number, n
   return (
     <motion.div style={{ position: "absolute", top: 0, left: 0, opacity, y }}>
       <p style={{ fontFamily: MONO, letterSpacing: "0.2em", fontSize: 12, color: J.gold, margin: "0 0 14px" }}>{k}</p>
-      <p style={{ fontFamily: DISPLAY, fontWeight: 500, fontSize: "clamp(22px,3vw,38px)", lineHeight: 1.18, letterSpacing: "-0.01em", color: J.navy, margin: 0 }}>{t}</p>
+      <p style={{ fontFamily: DISPLAY, fontWeight: 500, fontSize: "clamp(18px,2.6vw,38px)", lineHeight: 1.16, letterSpacing: "-0.01em", color: J.navy, margin: 0 }}>{t}</p>
     </motion.div>
   );
 }
@@ -298,8 +298,13 @@ function GraphNode({ p, node, index, total }: { p: MotionValue<number>; node: (t
   const headY = useTransform(draw, [0, 1], [CORE.y, node.y]);
   const headO = useTransform(draw, [0, 0.06, 0.92, 1], [0, 1, 1, 0]);
   const labelUp = useTransform(ignite, [0, 1], [6, 0]);
-  const left = node.x < CORE.x;
-  const ly = node.y < CORE.y ? node.y - 16 : node.y + 30;
+  const dx = node.x - CORE.x;
+  const dy = node.y - CORE.y;
+  const dist = Math.hypot(dx, dy) || 1;
+  const LR = 222; // label radius — sits cleanly OUTSIDE the membrane
+  const lx = CORE.x + (dx / dist) * LR;
+  const ly = CORE.y + (dy / dist) * LR;
+  const anchor = dx > 16 ? "start" : dx < -16 ? "end" : "middle";
 
   return (
     <g>
@@ -311,8 +316,7 @@ function GraphNode({ p, node, index, total }: { p: MotionValue<number>; node: (t
         <circle cx={0} cy={0} r={4.5} fill={J.gold} />
       </motion.g>
       <motion.g style={{ opacity: ignite, y: labelUp }}>
-        <text x={node.x} y={ly} textAnchor={left ? "end" : "start"} transform={`translate(${left ? -12 : 12}, 0)`} style={{ fontFamily: LABEL, fontWeight: 600, fontSize: 17, fill: J.cream }}>{node.label}</text>
-        <text x={node.x} y={ly + 18} textAnchor={left ? "end" : "start"} transform={`translate(${left ? -12 : 12}, 0)`} style={{ fontFamily: MONO, fontSize: 12.5, fill: J.blueGlow }}>{node.sub}</text>
+        <text x={lx} y={ly} textAnchor={anchor} dominantBaseline="middle" style={{ fontFamily: LABEL, fontWeight: 600, fontSize: 18, letterSpacing: "0.01em", fill: J.gold }}>{node.label}</text>
       </motion.g>
     </g>
   );

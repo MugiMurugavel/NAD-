@@ -31,15 +31,16 @@ export const JEASE = [0.22, 1, 0.36, 1] as const;
 export const VIEW = { w: 1200, h: 760 } as const;
 export const CORE = { x: 600, y: 408 } as const;
 
-// Downstream NAD⁺-dependent biology. Order = clockwise illumination from SIRT1.
+// Downstream NAD⁺-dependent biology — a clean uniform ring (R≈185) on the cell
+// membrane, clockwise from SIRT1. Labels are placed radially OUTSIDE the cell.
 export const NODES = [
-  { id: "sirt1", label: "SIRT1", sub: "sirtuin signaling", x: 600, y: 214 },
-  { id: "menam", label: "MeNAM", sub: "methylation", x: 806, y: 296 },
-  { id: "2py", label: "2PY", sub: "metabolite", x: 842, y: 476 },
-  { id: "redox", label: "Redox / detox", sub: "oxidative balance", x: 704, y: 596 },
-  { id: "immune", label: "Immune / chemokine", sub: "signaling", x: 496, y: 596 },
-  { id: "lipid", label: "Lipid handling", sub: "metabolism", x: 358, y: 476 },
-  { id: "tissue", label: "Tissue / vascular", sub: "context", x: 394, y: 296 },
+  { id: "sirt1", label: "SIRT1", x: 600, y: 223 },
+  { id: "menam", label: "MeNAM", x: 745, y: 293 },
+  { id: "2py", label: "2PY", x: 780, y: 449 },
+  { id: "redox", label: "Redox / detox", x: 680, y: 575 },
+  { id: "immune", label: "Immune / chemokine", x: 520, y: 575 },
+  { id: "lipid", label: "Lipid handling", x: 420, y: 449 },
+  { id: "tissue", label: "Tissue / vascular", x: 455, y: 293 },
 ] as const;
 
 // Depth HUD stages (right rail), one per scene.

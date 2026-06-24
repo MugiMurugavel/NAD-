@@ -4,7 +4,7 @@ import CountUp from "./CountUp";
 
 export default function Hero() {
   return (
-    <div className="max-md:!flex-col max-md:!items-start max-md:!gap-10 max-md:!px-5 max-md:!pt-28 max-md:!pb-14" style={{ alignItems: 'center', backgroundColor: 'var(--color-ivory)', boxSizing: 'border-box', display: 'flex', fontSize: '12px', fontSynthesis: 'none', gap: '40px', justifyContent: 'space-between', lineHeight: '16px', MozOsxFontSmoothing: 'grayscale', overflow: 'clip', paddingBottom: '110px', paddingInline: '60px', paddingTop: '96px', position: 'relative', WebkitFontSmoothing: 'antialiased', width: '100%' }}>
+    <div className="max-md:!flex-col max-md:!items-start max-md:!gap-10 max-md:!px-5 max-md:!pt-28 max-md:!pb-14" style={{ alignItems: 'center', backgroundColor: 'var(--color-ivory)', boxSizing: 'border-box', display: 'flex', fontSize: '12px', fontSynthesis: 'none', gap: 'clamp(32px, calc(32px + (40 - 32) * (100vw - 768px) / 672), 40px)', justifyContent: 'space-between', lineHeight: '16px', MozOsxFontSmoothing: 'grayscale', overflow: 'clip', paddingBottom: 'clamp(56px, calc(56px + (110 - 56) * (100vw - 768px) / 672), 110px)', paddingInline: '0px', paddingTop: 'clamp(96px, calc(112px + (96 - 112) * (100vw - 768px) / 672), 112px)', position: 'relative', WebkitFontSmoothing: 'antialiased', width: '100%' }}>
       <div style={{ bottom: '0px', boxSizing: 'border-box', left: '0px', overflow: 'clip', position: 'absolute', right: '0px', top: '0px' }}>
         <svg width="1440" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style={{ top: '0px', right: '0px', bottom: '0px', left: '0px', position: 'absolute' }}>
           <ellipse cx="430" cy="440" rx="720" ry="300" transform="rotate(-14 430 440)" fill="none" stroke="#B58A3C1F" style={{ strokeOpacity: '0.32', stroke: 'rgb(181, 138, 60)' }} />
@@ -21,37 +21,37 @@ export default function Hero() {
           </svg>
         </div>
       </div>
-      <div className="max-md:!w-full max-md:!shrink" style={{ alignItems: 'flex-start', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', flexShrink: '0', position: 'relative', width: '620px' }}>
+      <div className="max-md:!w-full max-md:!shrink" style={{ alignItems: 'flex-start', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', flexShrink: '0', position: 'relative', width: '100%', maxWidth: '620px' }}>
         <div style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', gap: '13px', paddingBottom: '36px' }}>
           <div style={{ backgroundColor: 'var(--color-gold)', boxSizing: 'border-box', flexShrink: '0', height: '1px', width: '30px' }} />
-          <div style={{ boxSizing: 'border-box', color: 'var(--color-gold-deep)', display: 'inline-block', fontFamily: 'var(--font-label)', fontSize: '13px', fontWeight: 600, letterSpacing: '0.24em', lineHeight: '16px', textTransform: 'uppercase', whiteSpaceCollapse: 'preserve' }}>
+          <div style={{ boxSizing: 'border-box', color: 'var(--color-gold-deep)', display: 'inline-block', fontFamily: 'var(--font-label)', fontSize: 'clamp(11px, calc(11px + (13 - 11) * (100vw - 768px) / 672), 13px)', fontWeight: 600, letterSpacing: '0.24em', lineHeight: 'clamp(14px, calc(14px + (16 - 14) * (100vw - 768px) / 672), 16px)', textTransform: 'uppercase', whiteSpaceCollapse: 'preserve' }}>
             Introducing LathMized® NAD⁺ · LNAD⁺
           </div>
         </div>
         <div className="max-md:!max-w-full" style={{ boxSizing: 'border-box', fontFamily: 'var(--font-display)', maxWidth: '560px', paddingBottom: '14px' }}>
-          <div style={{ boxSizing: 'border-box', color: 'var(--color-ink-soft)', fontFamily: 'var(--font-display)', fontSize: '40px', fontWeight: 500, letterSpacing: '-0.01em', lineHeight: '46px' }}>
+          <div style={{ boxSizing: 'border-box', color: 'var(--color-ink-soft)', fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, calc(26px + (40 - 26) * (100vw - 768px) / 672), 40px)', fontWeight: 500, letterSpacing: '-0.01em', lineHeight: 'clamp(30px, calc(30px + (46 - 30) * (100vw - 768px) / 672), 46px)' }}>
             Don’t just ask how much NAD⁺ is in the scoop.
           </div>
         </div>
         <div style={{ alignItems: 'flex-start', boxSizing: 'border-box', display: 'flex', flexDirection: 'column' }}>
-          <div className="max-md:!text-[44px] max-md:!leading-[44px]" style={{ boxSizing: 'border-box', color: 'var(--color-ink)', fontFamily: 'var(--font-display)', fontSize: '94px', fontWeight: 500, letterSpacing: '-0.025em', lineHeight: '84px' }}>
+          <div className="max-md:!text-[44px] max-md:!leading-[44px]" style={{ boxSizing: 'border-box', color: 'var(--color-ink)', fontFamily: 'var(--font-display)', fontSize: 'clamp(44px, calc(44px + (94 - 44) * (100vw - 768px) / 672), 94px)', fontWeight: 500, letterSpacing: '-0.025em', lineHeight: 'clamp(44px, calc(44px + (84 - 44) * (100vw - 768px) / 672), 84px)' }}>
             Ask how much
           </div>
           <div style={{ alignItems: 'baseline', boxSizing: 'border-box', display: 'flex', gap: '18px' }}>
-            <div className="max-md:!text-[44px] max-md:!leading-[46px]" style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '94px', fontWeight: 500, letterSpacing: '-0.025em', lineHeight: '96px' }}>
+            <div className="max-md:!text-[44px] max-md:!leading-[46px]" style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(44px, calc(44px + (94 - 44) * (100vw - 768px) / 672), 94px)', fontWeight: 500, letterSpacing: '-0.025em', lineHeight: 'clamp(46px, calc(46px + (96 - 46) * (100vw - 768px) / 672), 96px)' }}>
               is still
             </div>
-            <div className="max-md:!text-[46px] max-md:!leading-[46px]" style={{ boxSizing: 'border-box', color: 'var(--color-gold-deep)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '98px', fontStyle: 'italic', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '96px' }}>
+            <div className="max-md:!text-[46px] max-md:!leading-[46px]" style={{ boxSizing: 'border-box', color: 'var(--color-gold-deep)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(46px, calc(46px + (98 - 46) * (100vw - 768px) / 672), 98px)', fontStyle: 'italic', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 'clamp(46px, calc(46px + (96 - 46) * (100vw - 768px) / 672), 96px)' }}>
               alive.
             </div>
           </div>
         </div>
-        <div className="max-md:!max-w-full" style={{ boxSizing: 'border-box', fontFamily: 'var(--font-body)', maxWidth: '486px', paddingTop: '34px' }}>
-          <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', fontFamily: 'var(--font-body)', fontSize: '19px', lineHeight: '31px', whiteSpaceCollapse: 'preserve' }}>
+        <div className="max-md:!max-w-full" style={{ boxSizing: 'border-box', fontFamily: 'var(--font-body)', maxWidth: '486px', paddingTop: 'clamp(24px, calc(24px + (34 - 24) * (100vw - 768px) / 672), 34px)' }}>
+          <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', fontFamily: 'var(--font-body)', fontSize: 'clamp(16px, calc(16px + (19 - 16) * (100vw - 768px) / 672), 19px)', lineHeight: 'clamp(26px, calc(26px + (31 - 26) * (100vw - 768px) / 672), 31px)', whiteSpaceCollapse: 'preserve' }}>
             By “alive,” we mean NAD⁺ that stays functionally intact and enzymatically recognizable — still able to participate in NAD⁺ biology. LNAD⁺ is engineered to preserve it on the way into the cell.
           </div>
         </div>
-        <div style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', gap: '20px', paddingTop: '38px' }}>
+        <div style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', gap: '20px', paddingTop: 'clamp(28px, calc(28px + (38 - 28) * (100vw - 768px) / 672), 38px)' }}>
           <motion.a href="#trial" className="cursor-pointer" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 400, damping: 26 }} style={{ alignItems: 'center', backgroundColor: 'var(--color-ink)', borderRadius: 'var(--radius-pill)', boxSizing: 'border-box', display: 'flex', gap: '10px', paddingBlock: '17px', paddingInline: '30px' }}>
             <div style={{ boxSizing: 'border-box', color: 'var(--color-cream)', display: 'inline-block', fontFamily: 'var(--font-label)', fontSize: '16px', fontWeight: 600, lineHeight: '20px', whiteSpaceCollapse: 'preserve' }}>
               See the clinical result
@@ -66,7 +66,7 @@ export default function Hero() {
             </div>
           </motion.a>
         </div>
-        <div style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', gap: '16px', paddingTop: '46px' }}>
+        <div style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', gap: '16px', paddingTop: 'clamp(32px, calc(32px + (46 - 32) * (100vw - 768px) / 672), 46px)' }}>
           <div className="transition-transform hover:-translate-y-0.5 will-change-transform" style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', display: 'inline-block', fontFamily: 'var(--font-label)', fontSize: '12.5px', fontWeight: 600, letterSpacing: '0.2em', lineHeight: '16px', textTransform: 'uppercase', whiteSpaceCollapse: 'preserve' }}>
             Double-blind
           </div>
@@ -81,7 +81,7 @@ export default function Hero() {
         </div>
       </div>
       <div className="max-md:!w-full max-md:!self-center" style={{ alignItems: 'center', alignSelf: 'stretch', boxSizing: 'border-box', display: 'flex', flexBasis: '0%', flexGrow: '1', justifyContent: 'center', minWidth: '0px', position: 'relative' }}>
-        <div className="max-md:!scale-[0.6] max-md:!origin-top" style={{ boxSizing: 'border-box', flexShrink: '0', height: '560px', position: 'relative', width: '560px' }}>
+        <div className="max-md:!scale-[0.6] max-md:!origin-top" style={{ boxSizing: 'border-box', flexShrink: '0', height: '560px', position: 'relative', width: '560px', transform: 'scale(clamp(0.78, calc(0.78 + (1 - 0.78) * (100vw - 768px) / 672), 1))', transformOrigin: 'center' }}>
           <svg width="560" height="560" viewBox="0 0 560 560" xmlns="http://www.w3.org/2000/svg" style={{ top: '0px', right: '0px', bottom: '0px', left: '0px', position: 'absolute' }}>
             <ellipse cx="280" cy="280" rx="268" ry="146" transform="rotate(-26 280 280)" fill="none" stroke="#B58A3C73" />
             <ellipse cx="280" cy="280" rx="226" ry="262" transform="rotate(16 280 280)" fill="none" stroke="#B58A3C2E" />

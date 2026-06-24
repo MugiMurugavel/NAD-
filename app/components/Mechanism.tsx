@@ -4,7 +4,7 @@ import { sectionContainer, sectionItem } from "./Reveal";
 
 export default function Mechanism() {
   return (
-    <div className="max-md:!px-5 max-md:!py-14" style={{ alignItems: 'center', backgroundColor: 'var(--color-ivory)', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', fontSize: '12px', fontSynthesis: 'none', lineHeight: '16px', MozOsxFontSmoothing: 'grayscale', overflow: 'clip', paddingBlock: '128px', paddingInline: '60px', position: 'relative', WebkitFontSmoothing: 'antialiased', width: '100%' }}>
+    <div className="max-md:!px-5 max-md:!py-14" style={{ alignItems: 'center', backgroundColor: 'var(--color-ivory)', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', fontSize: '12px', fontSynthesis: 'none', lineHeight: '16px', MozOsxFontSmoothing: 'grayscale', overflow: 'clip', paddingBlock: 'clamp(56px, 8.9vw, 128px)', paddingInline: '0px', position: 'relative', WebkitFontSmoothing: 'antialiased', width: '100%' }}>
       <div style={{ bottom: '0px', boxSizing: 'border-box', left: '0px', overflow: 'clip', position: 'absolute', right: '0px', top: '0px' }}>
         <svg width="1440" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style={{ top: '0px', right: '0px', bottom: '0px', left: '0px', rotate: '70deg', position: 'absolute', transformOrigin: '0% 0%' }}>
           <ellipse cx="430" cy="440" rx="720" ry="300" transform="rotate(-14 430 440)" fill="none" stroke="#B58A3C1F" style={{ strokeOpacity: '0.32', stroke: 'rgb(181, 138, 60)' }} />
@@ -22,7 +22,7 @@ export default function Mechanism() {
         </div>
       </div>
       <motion.div variants={sectionContainer} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-15% 0px -10% 0px" }} style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', maxWidth: '1180px', position: 'relative', width: '100%' }}>
-        <motion.div variants={sectionItem} className="max-md:!flex-col max-md:!items-start max-md:!gap-10" style={{ alignItems: 'flex-end', boxSizing: 'border-box', display: 'flex', gap: '48px', justifyContent: 'space-between', paddingBottom: '66px' }}>
+        <motion.div variants={sectionItem} className="max-md:!flex-col max-md:!items-start max-md:!gap-10" style={{ alignItems: 'flex-end', boxSizing: 'border-box', display: 'flex', gap: 'clamp(28px, 3.6vw, 48px)', justifyContent: 'space-between', paddingBottom: 'clamp(40px, 4.6vw, 66px)' }}>
           <div style={{ alignItems: 'flex-start', boxSizing: 'border-box', display: 'flex', flexDirection: 'column' }}>
             <div style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', gap: '13px', paddingBottom: '28px' }}>
               <div style={{ backgroundColor: 'var(--color-gold)', boxSizing: 'border-box', flexShrink: '0', height: '1px', width: '30px' }} />
@@ -30,17 +30,17 @@ export default function Mechanism() {
                 How LNAD⁺ Works
               </div>
             </div>
-            <div className="max-md:!text-[32px] max-md:!leading-[34px]" style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '58px', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '60px' }}>
+            <div className="max-md:!text-[32px] max-md:!leading-[34px]" style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, calc(32px + 26 * (100vw - 768px) / 672), 58px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 'clamp(34px, calc(34px + 26 * (100vw - 768px) / 672), 60px)' }}>
               Engineered for the journey in.
             </div>
           </div>
           <div className="max-md:!max-w-full" style={{ boxSizing: 'border-box', fontFamily: 'var(--font-body)', maxWidth: '330px', paddingBottom: '6px' }}>
-            <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', fontFamily: 'var(--font-body)', fontSize: '17px', lineHeight: '27px', whiteSpaceCollapse: 'preserve' }}>
+            <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', fontFamily: 'var(--font-body)', fontSize: 'clamp(15px, calc(15px + 2 * (100vw - 768px) / 672), 17px)', lineHeight: 'clamp(24px, calc(24px + 3 * (100vw - 768px) / 672), 27px)', whiteSpaceCollapse: 'preserve' }}>
               A physicochemically modulated formulation designed to alter how NAD⁺ behaves — while preserving its native structure.
             </div>
           </div>
         </motion.div>
-        <motion.div variants={sectionItem} className="max-md:!flex-col max-md:!gap-10" style={{ boxSizing: 'border-box', display: 'flex', gap: '32px', paddingBottom: '60px', width: '100%' }}>
+        <motion.div variants={sectionItem} className="max-md:!flex-col max-md:!gap-10" style={{ boxSizing: 'border-box', display: 'flex', gap: 'clamp(20px, 2.4vw, 32px)', paddingBottom: 'clamp(40px, 4.2vw, 60px)', width: '100%' }}>
           <motion.div className="cursor-default" whileHover={{ y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 28 }} style={{ alignItems: 'flex-start', borderTopColor: 'var(--color-ink)', borderTopStyle: 'solid', borderTopWidth: '1px', boxSizing: 'border-box', display: 'flex', flexBasis: '0%', flexDirection: 'column', flexGrow: '1', minWidth: '0px', paddingTop: '24px' }}>
             <div style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', justifyContent: 'space-between', paddingBottom: '36px', width: '100%' }}>
               <div style={{ boxSizing: 'border-box', color: 'var(--color-gold-deep)', display: 'inline-block', fontFamily: 'var(--font-label)', fontSize: '12px', fontWeight: 600, letterSpacing: '0.16em', lineHeight: '16px' }}>
@@ -52,11 +52,11 @@ export default function Mechanism() {
               </svg>
             </div>
             <div style={{ boxSizing: 'border-box', display: 'inline-block', fontFamily: 'var(--font-display)', paddingBottom: '14px' }}>
-              <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '29px', fontWeight: 500, lineHeight: '32px' }}>
+              <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(19px, calc(19px + 10 * (100vw - 768px) / 672), 29px)', fontWeight: 500, lineHeight: 'clamp(21px, calc(21px + 11 * (100vw - 768px) / 672), 32px)' }}>
                 Physicochemical modulation
               </div>
             </div>
-            <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', display: 'inline-block', fontFamily: 'var(--font-body)', fontSize: '17.5px', lineHeight: '28px', whiteSpaceCollapse: 'preserve' }}>
+            <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', display: 'inline-block', fontFamily: 'var(--font-body)', fontSize: 'clamp(15.5px, calc(15.5px + 2 * (100vw - 768px) / 672), 17.5px)', lineHeight: 'clamp(25px, calc(25px + 3 * (100vw - 768px) / 672), 28px)', whiteSpaceCollapse: 'preserve' }}>
               Alters how NAD⁺ behaves on its way through the body — without altering its native molecular structure.
             </div>
           </motion.div>
@@ -72,11 +72,11 @@ export default function Mechanism() {
               </svg>
             </div>
             <div style={{ boxSizing: 'border-box', display: 'inline-block', fontFamily: 'var(--font-display)', paddingBottom: '14px' }}>
-              <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '29px', fontWeight: 500, lineHeight: '32px' }}>
+              <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(19px, calc(19px + 10 * (100vw - 768px) / 672), 29px)', fontWeight: 500, lineHeight: 'clamp(21px, calc(21px + 11 * (100vw - 768px) / 672), 32px)' }}>
                 Targeted cellular entry
               </div>
             </div>
-            <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', display: 'inline-block', fontFamily: 'var(--font-body)', fontSize: '17.5px', lineHeight: '28px', whiteSpaceCollapse: 'preserve' }}>
+            <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', display: 'inline-block', fontFamily: 'var(--font-body)', fontSize: 'clamp(15.5px, calc(15.5px + 2 * (100vw - 768px) / 672), 17.5px)', lineHeight: 'clamp(25px, calc(25px + 3 * (100vw - 768px) / 672), 28px)', whiteSpaceCollapse: 'preserve' }}>
               Designed to support delivery into cells — where NAD⁺ matters most — rather than simply flooding the circulation.
             </div>
           </motion.div>
@@ -91,17 +91,17 @@ export default function Mechanism() {
               </svg>
             </div>
             <div style={{ boxSizing: 'border-box', display: 'inline-block', fontFamily: 'var(--font-display)', paddingBottom: '14px' }}>
-              <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '29px', fontWeight: 500, lineHeight: '32px' }}>
+              <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(19px, calc(19px + 10 * (100vw - 768px) / 672), 29px)', fontWeight: 500, lineHeight: 'clamp(21px, calc(21px + 11 * (100vw - 768px) / 672), 32px)' }}>
                 Preserved & recognizable
               </div>
             </div>
-            <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', display: 'inline-block', fontFamily: 'var(--font-body)', fontSize: '17.5px', lineHeight: '28px', whiteSpaceCollapse: 'preserve' }}>
+            <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', display: 'inline-block', fontFamily: 'var(--font-body)', fontSize: 'clamp(15.5px, calc(15.5px + 2 * (100vw - 768px) / 672), 17.5px)', lineHeight: 'clamp(25px, calc(25px + 3 * (100vw - 768px) / 672), 28px)', whiteSpaceCollapse: 'preserve' }}>
               Keeps NAD⁺ functionally intact and enzymatically recognizable, so it can still participate in NAD⁺ biology.
             </div>
           </motion.div>
         </motion.div>
-        <motion.div variants={sectionItem} className="max-md:!flex-col max-md:!items-start max-md:!gap-5 max-md:!px-6 cursor-default" whileHover={{ y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 28 }} style={{ alignItems: 'center', backgroundColor: '#1623380A', borderRadius: '16px', boxSizing: 'border-box', display: 'flex', gap: '28px', paddingBlock: '28px', paddingInline: '36px', width: '100%' }}>
-          <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', flexShrink: '0', fontFamily: 'var(--font-quote)', fontSize: '17px', fontStyle: 'italic', lineHeight: '22px' }}>
+        <motion.div variants={sectionItem} className="max-md:!flex-col max-md:!items-start max-md:!gap-5 max-md:!px-6 cursor-default" whileHover={{ y: -5 }} transition={{ type: "spring", stiffness: 300, damping: 28 }} style={{ alignItems: 'center', backgroundColor: '#1623380A', borderRadius: '16px', boxSizing: 'border-box', display: 'flex', gap: 'clamp(20px, 2.1vw, 28px)', paddingBlock: 'clamp(24px, 2vw, 28px)', paddingInline: 'clamp(24px, 2.7vw, 36px)', width: '100%' }}>
+          <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', flexShrink: '0', fontFamily: 'var(--font-quote)', fontSize: 'clamp(15px, calc(15px + 2 * (100vw - 768px) / 672), 17px)', fontStyle: 'italic', lineHeight: 'clamp(20px, calc(20px + 2 * (100vw - 768px) / 672), 22px)' }}>
             Designed to support increases in
           </div>
           <div style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', flexBasis: '0%', flexGrow: '1', flexWrap: 'wrap', gap: '12px' }}>

@@ -4,7 +4,7 @@ import { sectionContainer, sectionItem } from "./Reveal";
 
 export default function Problem() {
   return (
-    <motion.div className="max-md:!flex-col max-md:!gap-10 max-md:!items-start max-md:!px-5 max-md:!py-14" variants={sectionContainer} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-15% 0px -10% 0px" }} style={{ alignItems: 'center', backgroundColor: 'var(--color-ivory)', boxSizing: 'border-box', display: 'flex', fontSize: '12px', fontSynthesis: 'none', gap: '72px', lineHeight: '16px', MozOsxFontSmoothing: 'grayscale', overflow: 'clip', paddingBlock: '128px', paddingInline: '60px', position: 'relative', WebkitFontSmoothing: 'antialiased', width: '100%' }}>
+    <motion.div className="max-md:!flex-col max-md:!gap-10 max-md:!items-start max-md:!px-5 max-md:!py-14" variants={sectionContainer} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-15% 0px -10% 0px" }} style={{ alignItems: 'center', backgroundColor: 'var(--color-ivory)', boxSizing: 'border-box', display: 'flex', fontSize: '12px', fontSynthesis: 'none', gap: 'clamp(40px, calc(40px + (72 - 40) * (100vw - 768px) / 672), 72px)', lineHeight: '16px', MozOsxFontSmoothing: 'grayscale', overflow: 'clip', paddingBlock: 'clamp(56px, calc(56px + (128 - 56) * (100vw - 768px) / 672), 128px)', paddingInline: '0px', position: 'relative', WebkitFontSmoothing: 'antialiased', width: '100%' }}>
       <div style={{ bottom: '0px', boxSizing: 'border-box', left: '0px', overflow: 'clip', position: 'absolute', right: '0px', top: '0px' }}>
         <svg width="1440" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style={{ top: '0px', right: '0px', bottom: '0px', left: '0px', rotate: '34deg', position: 'absolute', transformOrigin: '0% 0%' }}>
           <ellipse cx="430" cy="440" rx="720" ry="300" transform="rotate(-14 430 440)" fill="none" stroke="#B58A3C1F" style={{ strokeOpacity: '0.32', stroke: 'rgb(181, 138, 60)' }} />
@@ -21,7 +21,7 @@ export default function Problem() {
           </svg>
         </div>
       </div>
-      <motion.div variants={sectionItem} className="max-md:!w-full max-md:!shrink" style={{ alignItems: 'flex-start', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', flexShrink: '0', position: 'relative', width: '540px' }}>
+      <motion.div variants={sectionItem} className="max-md:!w-full max-md:!shrink" style={{ alignItems: 'flex-start', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', flexShrink: '0', position: 'relative', width: '100%', maxWidth: '540px' }}>
         <div style={{ alignItems: 'center', boxSizing: 'border-box', display: 'flex', gap: '13px', paddingBottom: '30px' }}>
           <div style={{ backgroundColor: 'var(--color-gold)', boxSizing: 'border-box', flexShrink: '0', height: '1px', width: '30px' }} />
           <div style={{ boxSizing: 'border-box', color: 'var(--color-gold-deep)', display: 'inline-block', fontFamily: 'var(--font-label)', fontSize: '13px', fontWeight: 600, letterSpacing: '0.24em', lineHeight: '16px', textTransform: 'uppercase', whiteSpaceCollapse: 'preserve' }}>
@@ -29,28 +29,28 @@ export default function Problem() {
           </div>
         </div>
         <div style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', gap: '2px', paddingBottom: '30px' }}>
-          <div className="max-md:!text-[32px] max-md:!leading-[34px]" style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '58px', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '58px' }}>
+          <div className="max-md:!text-[32px] max-md:!leading-[34px]" style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, calc(32px + (58 - 32) * (100vw - 768px) / 672), 58px)', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 'clamp(34px, calc(34px + (58 - 34) * (100vw - 768px) / 672), 58px)' }}>
             Circulating NAD⁺
           </div>
           <div style={{ alignItems: 'baseline', boxSizing: 'border-box', display: 'flex', gap: '18px' }}>
-            <div className="max-md:!text-[32px] max-md:!leading-[34px]" style={{ boxSizing: 'border-box', color: 'var(--color-coral)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '58px', lineHeight: '60px' }}>
+            <div className="max-md:!text-[32px] max-md:!leading-[34px]" style={{ boxSizing: 'border-box', color: 'var(--color-coral)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, calc(32px + (58 - 32) * (100vw - 768px) / 672), 58px)', lineHeight: 'clamp(34px, calc(34px + (60 - 34) * (100vw - 768px) / 672), 60px)' }}>
               ≠
             </div>
-            <div className="max-md:!text-[32px] max-md:!leading-[34px]" style={{ boxSizing: 'border-box', color: 'var(--color-cell)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '58px', fontStyle: 'italic', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: '60px' }}>
+            <div className="max-md:!text-[32px] max-md:!leading-[34px]" style={{ boxSizing: 'border-box', color: 'var(--color-cell)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, calc(32px + (58 - 32) * (100vw - 768px) / 672), 58px)', fontStyle: 'italic', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 'clamp(34px, calc(34px + (60 - 34) * (100vw - 768px) / 672), 60px)' }}>
               Intracellular NAD⁺
             </div>
           </div>
         </div>
         <div className="max-md:!max-w-full" style={{ boxSizing: 'border-box', fontFamily: 'var(--font-body)', maxWidth: '480px', paddingBottom: '34px' }}>
-          <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', fontFamily: 'var(--font-body)', fontSize: '19px', lineHeight: '31px', whiteSpaceCollapse: 'preserve' }}>
+          <div style={{ boxSizing: 'border-box', color: 'var(--color-graphite)', fontFamily: 'var(--font-body)', fontSize: 'clamp(16px, calc(16px + (19 - 16) * (100vw - 768px) / 672), 19px)', lineHeight: 'clamp(26px, calc(26px + (31 - 26) * (100vw - 768px) / 672), 31px)', whiteSpaceCollapse: 'preserve' }}>
             Most NAD⁺ strategies — precursors and IV infusions alike — are judged by a number in the blood. But NAD⁺ biology is compartmentalized. Sirtuins, PARPs and mitochondrial enzymes work inside the cell. Plasma is a transit space.
           </div>
         </div>
-        <div className="max-md:!w-full" style={{ alignItems: 'flex-start', borderTopColor: 'var(--color-line)', borderTopStyle: 'solid', borderTopWidth: '1px', boxSizing: 'border-box', display: 'flex', gap: '16px', paddingTop: '28px', width: '480px' }}>
-          <div style={{ boxSizing: 'border-box', color: 'var(--color-gold)', display: 'inline-block', flexShrink: '0', fontFamily: 'var(--font-display)', fontSize: '42px', fontWeight: 500, lineHeight: '30px' }}>
+        <div className="max-md:!w-full" style={{ alignItems: 'flex-start', borderTopColor: 'var(--color-line)', borderTopStyle: 'solid', borderTopWidth: '1px', boxSizing: 'border-box', display: 'flex', gap: '16px', paddingTop: '28px', width: '100%', maxWidth: '480px' }}>
+          <div style={{ boxSizing: 'border-box', color: 'var(--color-gold)', display: 'inline-block', flexShrink: '0', fontFamily: 'var(--font-display)', fontSize: 'clamp(27px, calc(27px + (42 - 27) * (100vw - 768px) / 672), 42px)', fontWeight: 500, lineHeight: 'clamp(22px, calc(22px + (30 - 22) * (100vw - 768px) / 672), 30px)' }}>
             “
           </div>
-          <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-quote)', fontSize: '24px', fontStyle: 'italic', lineHeight: '33px' }}>
+          <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-quote)', fontSize: 'clamp(18px, calc(18px + (24 - 18) * (100vw - 768px) / 672), 24px)', fontStyle: 'italic', lineHeight: 'clamp(25px, calc(25px + (33 - 25) * (100vw - 768px) / 672), 33px)' }}>
             A blood signal is not the same as a cellular mechanism.
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function Problem() {
             </div>
           </motion.div>
           <div style={{ boxSizing: 'border-box', display: 'inline-block', flexShrink: '0', fontFamily: 'var(--font-display)', paddingBottom: '48px' }}>
-            <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: '46px', lineHeight: '56px' }}>
+            <div style={{ boxSizing: 'border-box', color: 'var(--color-ink)', display: 'inline-block', fontFamily: 'var(--font-display)', fontSize: 'clamp(29px, calc(29px + (46 - 29) * (100vw - 768px) / 672), 46px)', lineHeight: 'clamp(35px, calc(35px + (56 - 35) * (100vw - 768px) / 672), 56px)' }}>
               ≠
             </div>
           </div>

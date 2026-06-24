@@ -4,8 +4,8 @@ import { sectionContainer, sectionItem } from "./Reveal";
 
 export default function CTA() {
   return (
-    <div className="max-md:!px-5 max-md:!py-14" style={{ alignItems: 'center', backgroundColor: '#F4EDDF', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', fontSize: '12px', fontSynthesis: 'none', lineHeight: '16px', MozOsxFontSmoothing: 'grayscale', overflow: 'clip', overflowX: 'visible', overflowY: 'visible', paddingBlock: '100px', paddingInline: '64px', WebkitFontSmoothing: 'antialiased', width: '100%' }}>
-      <div className="max-md:!py-16 max-md:!px-6" style={{ alignItems: 'center', backgroundImage: 'radial-gradient(ellipse 80% 90% at 50% 14.000000000000002% in oklab, oklab(35% -0.010 -0.091) 0%, oklab(25.7% -0.008 -0.051) 56%, oklab(21.8% -0.008 -0.041) 100%)', borderRadius: '44px', boxShadow: '#ADC8EB1F 0px 1px 0px inset, #1A2C4929 0px 32px 90px, #1A2C4914 0px 6px 22px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', overflow: 'clip', paddingBlock: '120px', paddingInline: '60px', position: 'relative', width: '100%' }}>
+    <div className="max-md:!px-5 max-md:!py-14" style={{ alignItems: 'center', backgroundColor: '#F4EDDF', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', fontSize: '12px', fontSynthesis: 'none', lineHeight: '16px', MozOsxFontSmoothing: 'grayscale', overflow: 'clip', overflowX: 'visible', overflowY: 'visible', paddingBlock: 'clamp(56px, calc(56px + 44 * (100vw - 768px) / 672), 100px)', paddingInline: '0px', WebkitFontSmoothing: 'antialiased', width: '100%' }}>
+      <div className="max-md:!py-16 max-md:!px-6" style={{ alignItems: 'center', backgroundImage: 'radial-gradient(ellipse 80% 90% at 50% 14.000000000000002% in oklab, oklab(35% -0.010 -0.091) 0%, oklab(25.7% -0.008 -0.051) 56%, oklab(21.8% -0.008 -0.041) 100%)', borderRadius: '44px', boxShadow: '#ADC8EB1F 0px 1px 0px inset, #1A2C4929 0px 32px 90px, #1A2C4914 0px 6px 22px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', overflow: 'clip', paddingBlock: 'clamp(64px, calc(64px + 56 * (100vw - 768px) / 672), 120px)', paddingInline: 'clamp(24px, calc(24px + 36 * (100vw - 768px) / 672), 60px)', position: 'relative', width: '100%' }}>
         <div style={{ bottom: -128, boxSizing: 'border-box', left: -60, mixBlendMode: 'soft-light', opacity: '0.5', position: 'absolute', right: -60, top: -526 }}>
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
             <filter id="_69n17h0"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
@@ -27,11 +27,11 @@ export default function CTA() {
               Get in touch
             </div>
           </motion.div>
-          <motion.div variants={sectionItem} className="max-md:!text-[32px] max-md:!leading-[34px] max-md:!max-w-full" style={{ boxSizing: 'border-box', color: 'var(--color-cream)', display: 'flex', flexWrap: 'wrap', fontFamily: 'var(--font-display)', fontSize: '68px', fontWeight: 500, justifyContent: 'center', letterSpacing: '-0.02em', lineHeight: '68px', maxWidth: '700px', textAlign: 'center' }}>
+          <motion.div variants={sectionItem} className="max-md:!text-[32px] max-md:!leading-[34px] max-md:!max-w-full" style={{ boxSizing: 'border-box', color: 'var(--color-cream)', display: 'flex', flexWrap: 'wrap', fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, calc(32px + 36 * (100vw - 768px) / 672), 68px)', fontWeight: 500, justifyContent: 'center', letterSpacing: '-0.02em', lineHeight: 'clamp(34px, calc(34px + 34 * (100vw - 768px) / 672), 68px)', maxWidth: '700px', textAlign: 'center' }}>
             Be among the first to ask the better question.
           </motion.div>
           <motion.div variants={sectionItem} className="max-md:!max-w-full" style={{ boxSizing: 'border-box', fontFamily: 'var(--font-body)', maxWidth: '520px', paddingTop: '26px' }}>
-            <div style={{ boxSizing: 'border-box', color: 'var(--color-cream-dim)', display: 'flex', flexWrap: 'wrap', fontFamily: 'var(--font-body)', fontSize: '19px', justifyContent: 'center', lineHeight: '31px', textAlign: 'center', whiteSpaceCollapse: 'preserve' }}>
+            <div style={{ boxSizing: 'border-box', color: 'var(--color-cream-dim)', display: 'flex', flexWrap: 'wrap', fontFamily: 'var(--font-body)', fontSize: 'clamp(16px, calc(16px + 3 * (100vw - 768px) / 672), 19px)', justifyContent: 'center', lineHeight: 'clamp(26px, calc(26px + 5 * (100vw - 768px) / 672), 31px)', textAlign: 'center', whiteSpaceCollapse: 'preserve' }}>
               Have a question about the science, the trial, or LNAD⁺ itself? Our team reads every note — and would love to hear from you.
             </div>
           </motion.div>
