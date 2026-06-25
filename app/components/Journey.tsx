@@ -107,18 +107,24 @@ export default function Journey() {
               <radialGradient id="emShade" cx="64%" cy="78%" r="60%"><stop offset="0%" stopColor="#000" stopOpacity="0" /><stop offset="100%" stopColor="#0a1326" stopOpacity="0.4" /></radialGradient>
               <linearGradient id="emBolt" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#E5483C" /><stop offset="48%" stopColor="#E5483C" /><stop offset="52%" stopColor={BLUE2} /><stop offset="100%" stopColor={BLUE2} /></linearGradient>
               <radialGradient id="burst" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" /><stop offset="30%" stopColor={BLUEGLOW} stopOpacity="0.6" /><stop offset="70%" stopColor={BLUE2} stopOpacity="0.18" /><stop offset="100%" stopColor={BLUE2} stopOpacity="0" /></radialGradient>
+              <radialGradient id="rbcGrad" cx="50%" cy="50%" r="58%"><stop offset="0%" stopColor="#C2615C" /><stop offset="52%" stopColor="#DE908B" /><stop offset="100%" stopColor="#EDB7B2" /></radialGradient>
+              <radialGradient id="rbcRim" cx="42%" cy="34%" r="68%"><stop offset="0%" stopColor="#ffffff" stopOpacity="0.5" /><stop offset="40%" stopColor="#ffffff" stopOpacity="0" /><stop offset="100%" stopColor="#ffffff" stopOpacity="0" /></radialGradient>
+              <radialGradient id="headGrad" cx="36%" cy="30%" r="72%"><stop offset="0%" stopColor="#BCD8F2" /><stop offset="48%" stopColor="#6E9BD0" /><stop offset="100%" stopColor="#3F6DA1" /></radialGradient>
+              <radialGradient id="epiGrad" cx="40%" cy="34%" r="78%"><stop offset="0%" stopColor="#F7E7D0" /><stop offset="100%" stopColor="#E6C79E" /></radialGradient>
             </defs>
 
             {/* 01 — mucosa */}
             <motion.g style={{ opacity: subO }}>
-              <path d="M 180 250 Q 600 150 1020 250" fill="none" stroke={REDD} strokeOpacity="0.35" strokeWidth={2.4} strokeLinecap="round" />
               <Cobbles />
-              <text x={600} y={300} textAnchor="middle" style={{ fontFamily: MONO, fontSize: 13, letterSpacing: "0.16em", fill: "#A98C6A" }}>ORAL MUCOSA</text>
+              <path d="M 130 250 Q 600 166 1070 250 L 1070 196 L 130 196 Z" fill="#F6E8D2" opacity={0.55} />
+              <path d="M 130 250 Q 600 166 1070 250" fill="none" stroke="#E4BE92" strokeWidth={3} strokeLinecap="round" />
+              <path d="M 130 244 Q 600 160 1070 244" fill="none" stroke="#ffffff" strokeOpacity={0.5} strokeWidth={1.4} strokeLinecap="round" />
+              <text x={600} y={312} textAnchor="middle" style={{ fontFamily: MONO, fontSize: 13, letterSpacing: "0.16em", fill: "#B0875A" }}>ORAL MUCOSA</text>
             </motion.g>
 
             {/* 02 — circulation: red blood cells + FLAT red line */}
             <motion.g style={{ opacity: bloodO }}>
-              {[200, 340, 470, 820, 960, 1040].map((cx, i) => <RBC key={i} p={p} cx={cx} cy={300 + (i % 2 ? 40 : -30)} />)}
+              {([[200, 300, 1.1, -18], [345, 362, 0.82, 14], [470, 286, 1.0, -6], [820, 338, 0.92, 22], [968, 296, 1.18, -24], [1048, 360, 0.78, 8], [655, 250, 0.66, 30]] as const).map(([x, y, r, rot], i) => <RBC key={i} p={p} cx={x} cy={y} r={r} rot={rot} />)}
             </motion.g>
             <motion.g style={{ opacity: chAO }}>
               <motion.path d="M 330 568 L 870 568" fill="none" stroke={RED} strokeWidth={2.8} strokeLinecap="round" style={{ pathLength: chA }} />
@@ -135,11 +141,21 @@ export default function Journey() {
             {/* cell interior + network + emblem — shifted right in step 05 */}
             <motion.g style={{ x: centerShift }}>
             <motion.circle cx={CORE.x} cy={CORE.y} r={300} fill="#0E1B30" style={{ opacity: darkO }} />
-            <motion.g style={{ opacity: cellArtO }} stroke={BLUEGLOW} strokeOpacity={0.5} fill="none" strokeWidth={1.4}>
-              <ellipse cx={380} cy={520} rx={70} ry={34} />
-              <path d="M 330 520 q 14 -16 28 0 q 14 16 28 0 q 14 -16 28 0" />
-              <circle cx={820} cy={300} r={64} />
-              <circle cx={820} cy={300} r={30} strokeDasharray="2 7" />
+            <motion.g style={{ opacity: cellArtO }}>
+              {/* mitochondrion — outer membrane + cristae */}
+              <g transform="translate(360 524) rotate(-14)" stroke={BLUEGLOW} strokeOpacity={0.5} fill="none" strokeWidth={1.6} strokeLinecap="round">
+                <ellipse cx={0} cy={0} rx={94} ry={45} />
+                <ellipse cx={0} cy={0} rx={84} ry={36} strokeOpacity={0.28} />
+                <path d="M -74 -8 q 20 -34 40 2 q 20 36 40 -2 q 20 -34 40 4" strokeOpacity={0.3} />
+                <path d="M -74 16 q 22 -32 42 4 q 20 34 40 -4 q 18 -28 36 2" strokeOpacity={0.3} />
+              </g>
+              {/* nucleus — envelope + nucleolus */}
+              <g transform="translate(842 300)" stroke={BLUEGLOW} fill="none">
+                <circle cx={0} cy={0} r={74} strokeOpacity={0.42} strokeWidth={1.5} />
+                <circle cx={0} cy={0} r={67} strokeOpacity={0.22} strokeWidth={1} strokeDasharray="2 8" />
+                <circle cx={16} cy={-10} r={23} fill={BLUEGLOW} fillOpacity={0.08} strokeOpacity={0.4} strokeWidth={1.4} />
+                <g fill={BLUEGLOW} fillOpacity={0.22} stroke="none"><circle cx={-30} cy={20} r={2} /><circle cx={-12} cy={-34} r={1.6} /><circle cx={34} cy={30} r={1.8} /><circle cx={-38} cy={-12} r={1.4} /></g>
+              </g>
             </motion.g>
             <motion.g style={{ opacity: coreO }}>
               <motion.circle cx={CORE.x} cy={CORE.y} r={210} fill="url(#burst)" style={{ scale: coreScale, transformBox: "fill-box", transformOrigin: "center" }} />
@@ -243,35 +259,61 @@ function MotionPercent({ value }: { value: MotionValue<number> }) {
 }
 
 function Cobbles() {
-  const cells: [number, number][] = [];
-  for (let r = 0; r < 3; r++) for (let c = 0; c < 13; c++) cells.push([150 + c * 70 + (r % 2 ? 35 : 0), 300 + r * 40]);
-  return <g stroke="#D9B98F" strokeOpacity="0.45" fill="none" strokeWidth={1}>{cells.map(([x, y], i) => <circle key={i} cx={x} cy={y} r={20} />)}</g>;
+  const cells: { x: number; y: number; r: number }[] = [];
+  let seed = 11;
+  const rnd = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
+  for (let row = 0; row < 5; row++) {
+    const y = 322 + row * 46;
+    for (let c = 0; c < 17; c++) {
+      const x = 120 + c * 60 + (row % 2 ? 30 : 0) + (rnd() - 0.5) * 16;
+      cells.push({ x, y: y + (rnd() - 0.5) * 12, r: 23 + rnd() * 9 });
+    }
+  }
+  return (
+    <g>
+      {cells.map((c, i) => (
+        <g key={i} opacity={Math.max(0.12, 0.52 - (c.y - 322) / 760)}>
+          <circle cx={c.x} cy={c.y} r={c.r} fill="url(#epiGrad)" />
+          <circle cx={c.x} cy={c.y} r={c.r} fill="none" stroke="#C9A877" strokeOpacity={0.4} strokeWidth={1} />
+        </g>
+      ))}
+    </g>
+  );
 }
 
-function RBC({ p, cx, cy }: { p: MotionValue<number>; cx: number; cy: number }) {
-  const drift = useTransform(p, [0.21, 0.38], [0, 60]);
+function RBC({ p, cx, cy, r = 1, rot = 0 }: { p: MotionValue<number>; cx: number; cy: number; r?: number; rot?: number }) {
+  const drift = useTransform(p, [0.21, 0.38], [0, 64]);
+  const rx = 27 * r, ry = 18 * r;
   return (
     <motion.g style={{ x: drift }}>
-      <ellipse cx={cx} cy={cy} rx={22} ry={14} fill="#E08B86" fillOpacity={0.8} />
-      <ellipse cx={cx} cy={cy} rx={9} ry={6} fill="#C8362B" fillOpacity={0.45} />
+      <g transform={`translate(${cx} ${cy}) rotate(${rot})`} opacity={0.92}>
+        <ellipse cx={2} cy={ry * 0.55} rx={rx} ry={ry * 0.7} fill="#7E322E" opacity={0.12} />
+        <ellipse cx={0} cy={0} rx={rx} ry={ry} fill="url(#rbcGrad)" />
+        <ellipse cx={0} cy={0} rx={rx * 0.44} ry={ry * 0.44} fill="#AF4A45" opacity={0.45} />
+        <ellipse cx={0} cy={0} rx={rx} ry={ry} fill="url(#rbcRim)" />
+      </g>
     </motion.g>
   );
 }
 
 function Bilayer() {
-  const heads: number[] = [];
-  for (let x = 170; x <= 1030; x += 40) heads.push(x);
-  const top = 430, bot = 486;
+  const xs: number[] = [];
+  for (let x = 158; x <= 1042; x += 29) xs.push(x);
   return (
     <g>
-      {heads.map((x, i) => {
-        const wob = Math.sin((x / 1200) * Math.PI * 3) * 10;
+      {xs.map((x, i) => {
+        const wob = Math.sin((x / 1200) * Math.PI * 3.2) * 12;
+        const topY = 432 + wob, botY = 490 + wob;
         return (
           <g key={i}>
-            <circle cx={x} cy={top + wob} r={8} fill={BLUE2} fillOpacity={0.85} />
-            <line x1={x} y1={top + wob + 8} x2={x} y2={top + wob + 22} stroke={BLUE2} strokeOpacity={0.5} strokeWidth={1.4} />
-            <circle cx={x} cy={bot + wob} r={8} fill={BLUE2} fillOpacity={0.85} />
-            <line x1={x} y1={bot + wob - 8} x2={x} y2={bot + wob - 22} stroke={BLUE2} strokeOpacity={0.5} strokeWidth={1.4} />
+            {/* upper leaflet — head + two tails pointing down to the core */}
+            <line x1={x - 2.4} y1={topY + 6} x2={x - 4} y2={topY + 27} stroke={BLUE2} strokeOpacity={0.42} strokeWidth={1.5} strokeLinecap="round" />
+            <line x1={x + 2.4} y1={topY + 6} x2={x + 4} y2={topY + 27} stroke={BLUE2} strokeOpacity={0.42} strokeWidth={1.5} strokeLinecap="round" />
+            <circle cx={x} cy={topY} r={7.5} fill="url(#headGrad)" />
+            {/* lower leaflet — head + two tails pointing up to the core */}
+            <line x1={x - 2.4} y1={botY - 6} x2={x - 4} y2={botY - 27} stroke={BLUE2} strokeOpacity={0.42} strokeWidth={1.5} strokeLinecap="round" />
+            <line x1={x + 2.4} y1={botY - 6} x2={x + 4} y2={botY - 27} stroke={BLUE2} strokeOpacity={0.42} strokeWidth={1.5} strokeLinecap="round" />
+            <circle cx={x} cy={botY} r={7.5} fill="url(#headGrad)" />
           </g>
         );
       })}
@@ -346,13 +388,20 @@ function RailArrow({ p }: { p: MotionValue<number> }) {
 }
 
 const NODE_ICON: Record<string, React.ReactNode> = {
-  sirt1: <path d="M-5 -5 L5 5 M5 -5 L-5 5" />,
-  menam: <g><circle cx={0} cy={-4} r={2.4} /><circle cx={-4} cy={3} r={2.4} /><circle cx={4} cy={3} r={2.4} /><path d="M0 -4 L-4 3 M0 -4 L4 3" /></g>,
-  "2py": <g><path d="M-4 -4 h8 v8 h-8 z" /><circle cx={0} cy={0} r={1.6} /></g>,
-  redox: <path d="M0 -6 V6 M-5 -3 L5 3 M5 -3 L-5 3" />,
-  immune: <path d="M0 -6 L5 -3 V2 C5 5 0 6 0 6 C0 6 -5 5 -5 2 V-3 Z" />,
-  lipid: <path d="M0 -6 C4 0 4 4 0 6 C-4 4 -4 0 0 -6 Z" />,
-  tissue: <path d="M0 -6 V6 M-5 -2 L5 2 M-5 2 L5 -2 M-3 -5 L3 5 M3 -5 L-3 5" />,
+  // DNA double helix
+  sirt1: <g><path d="M-5 -7 C 3 -3 -3 3 5 7" /><path d="M5 -7 C -3 -3 3 3 -5 7" /><path d="M-3.4 -4 L3.4 -4 M-4.4 0 L4.4 0 M-3.4 4 L3.4 4" /></g>,
+  // hexagonal molecule + methyl branch
+  menam: <g><path d="M0 -6 L5.2 -3 L5.2 3 L0 6 L-5.2 3 L-5.2 -3 Z" /><path d="M5.2 -3 L8.2 -4.8" /></g>,
+  // pyridone-type ring with substituents
+  "2py": <g><path d="M0 -6 L5.2 -3 L5.2 3 L0 6 L-5.2 3 L-5.2 -3 Z" /><path d="M0 -6 L0 -9" /><path d="M5.2 3 L8 4.6" /></g>,
+  // snowflake (tissue / vascular)
+  tissue: <g><path d="M0 -7.5 V7.5 M-6.5 -3.7 L6.5 3.7 M6.5 -3.7 L-6.5 3.7" /><path d="M0 -7.5 L-2 -5.2 M0 -7.5 L2 -5.2 M0 7.5 L-2 5.2 M0 7.5 L2 5.2 M-6.5 -3.7 L-5.9 -1.4 M6.5 3.7 L5.9 1.4 M6.5 -3.7 L5.9 -1.4 M-6.5 3.7 L-5.9 1.4" /></g>,
+  // droplet (lipid)
+  lipid: <g><path d="M0 -7.5 C4.6 -1 4.6 4.2 0 7.2 C-4.6 4.2 -4.6 -1 0 -7.5 Z" /><path d="M-1.7 3.2 C-2.5 1.6 -2.1 0 -1 -1.6" strokeOpacity={0.6} /></g>,
+  // shield (immune / chemokine)
+  immune: <g><path d="M0 -7.5 L5.6 -4.8 V1 C5.6 5.2 0 7.8 0 7.8 C0 7.8 -5.6 5.2 -5.6 1 V-4.8 Z" /><path d="M-2.6 -0.4 L-0.6 1.8 L3.2 -2.8" /></g>,
+  // redox cycle (two arrows)
+  redox: <g><path d="M-5.6 -1.4 A 5.6 5.6 0 0 1 3.8 -3.8" /><path d="M3.8 -3.8 L4.6 -6.3 M3.8 -3.8 L6.4 -3.2" /><path d="M5.6 1.4 A 5.6 5.6 0 0 1 -3.8 3.8" /><path d="M-3.8 3.8 L-4.6 6.3 M-3.8 3.8 L-6.4 3.2" /></g>,
 };
 
 function GraphNode({ p, node, index, total }: { p: MotionValue<number>; node: (typeof NODES)[number]; index: number; total: number }) {
