@@ -174,7 +174,7 @@ export default function Journey() {
           </svg>
 
           {/* big +53% readout */}
-          <motion.div className="j-pct" style={{ position: "absolute", left: "50%", top: "46%", x: "-50%", y: "-50%", opacity: bigPctO, textAlign: "center", pointerEvents: "none" }}>
+          <motion.div className="j-pct" style={{ position: "absolute", left: "50%", top: "33%", x: "-50%", y: "-50%", opacity: bigPctO, textAlign: "center", pointerEvents: "none" }}>
             <div style={{ fontFamily: DISPLAY, fontWeight: 500, fontSize: "clamp(44px,7.5vw,104px)", color: "#fff", textShadow: "0 2px 30px rgba(10,18,40,0.6), 0 0 60px rgba(47,111,183,0.7)", letterSpacing: "-0.02em", lineHeight: 1 }}>
               <MotionPercent value={intraPct} />
             </div>
