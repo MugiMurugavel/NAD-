@@ -17,10 +17,10 @@ import { VIEW, CORE, NODES } from "./journey/tokens";
 const NAVY = "#16233B";
 const INK = "#33475F";
 const INKDIM = "#6E819B";
-const RED = "#C8362B";
-const REDD = "#9E2A22";
-const BLUE = "#1F4E9C";
-const BLUE2 = "#2E6FB7";
+const RED = "#D0021B"; // grateful-red
+const REDD = "#A0011A"; // deeper grateful-red for sphere shading
+const BLUE = "#0066A4"; // stealie-blue
+const BLUE2 = "#1A82C8"; // brighter stealie-blue for structures
 const BLUEGLOW = "#8FB7E0";
 const CREAM = "#F4EDDF";
 const MONO = "var(--font-mono)";
@@ -102,10 +102,10 @@ export default function Journey() {
         <motion.div className="j-svgwrap" style={{ position: "absolute", inset: 0, opacity: diagramDim }}>
           <svg className="j-svg" viewBox={`0 0 ${VIEW.w} ${VIEW.h}`} width="100%" height="100%" preserveAspectRatio="xMidYMid meet" style={{ display: "block" }}>
             <defs>
-              <linearGradient id="emSplit" x1="0" y1="0" x2="1" y2="0.15"><stop offset="0%" stopColor={RED} /><stop offset="46%" stopColor={REDD} /><stop offset="50%" stopColor="#3a3550" /><stop offset="54%" stopColor="#15366E" /><stop offset="100%" stopColor={BLUE} /></linearGradient>
+              <linearGradient id="emSplit" x1="0" y1="0" x2="1" y2="0.15"><stop offset="0%" stopColor={RED} /><stop offset="46%" stopColor={REDD} /><stop offset="50%" stopColor="#0A0A0A" /><stop offset="54%" stopColor="#004B79" /><stop offset="100%" stopColor={BLUE} /></linearGradient>
               <radialGradient id="emGloss" cx="36%" cy="28%" r="62%"><stop offset="0%" stopColor="#fff" stopOpacity="0.85" /><stop offset="34%" stopColor="#fff" stopOpacity="0.18" /><stop offset="100%" stopColor="#fff" stopOpacity="0" /></radialGradient>
               <radialGradient id="emShade" cx="64%" cy="78%" r="60%"><stop offset="0%" stopColor="#000" stopOpacity="0" /><stop offset="100%" stopColor="#0a1326" stopOpacity="0.4" /></radialGradient>
-              <linearGradient id="emBolt" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#E5483C" /><stop offset="48%" stopColor="#E5483C" /><stop offset="52%" stopColor={BLUE2} /><stop offset="100%" stopColor={BLUE2} /></linearGradient>
+              <linearGradient id="emBolt" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#E11530" /><stop offset="48%" stopColor="#E11530" /><stop offset="52%" stopColor={BLUE2} /><stop offset="100%" stopColor={BLUE2} /></linearGradient>
               <radialGradient id="burst" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" /><stop offset="30%" stopColor={BLUEGLOW} stopOpacity="0.6" /><stop offset="70%" stopColor={BLUE2} stopOpacity="0.18" /><stop offset="100%" stopColor={BLUE2} stopOpacity="0" /></radialGradient>
               <radialGradient id="rbcGrad" cx="50%" cy="50%" r="58%"><stop offset="0%" stopColor="#C2615C" /><stop offset="52%" stopColor="#DE908B" /><stop offset="100%" stopColor="#EDB7B2" /></radialGradient>
               <radialGradient id="rbcRim" cx="42%" cy="34%" r="68%"><stop offset="0%" stopColor="#ffffff" stopOpacity="0.5" /><stop offset="40%" stopColor="#ffffff" stopOpacity="0" /><stop offset="100%" stopColor="#ffffff" stopOpacity="0" /></radialGradient>

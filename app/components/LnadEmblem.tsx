@@ -25,10 +25,10 @@ export default function LnadEmblem({
   const blueN = `bluen-${uid}`;
   const shade = `shade-${uid}`;
 
-  const RED = "#C8362B";
-  const REDD = "#9E2A22";
-  const BLUE = "#1F4E9C";
-  const BLUED = "#15366E";
+  const RED = "#D0021B"; // grateful-red
+  const REDD = "#A0011A";
+  const BLUE = "#0066A4"; // stealie-blue
+  const BLUED = "#004B79";
 
   return (
     <svg
@@ -45,7 +45,7 @@ export default function LnadEmblem({
         <linearGradient id={split} x1="0" y1="0" x2="1" y2="0.15">
           <stop offset="0%" stopColor={RED} />
           <stop offset="46%" stopColor={REDD} />
-          <stop offset="50%" stopColor="#3a3550" />
+          <stop offset="50%" stopColor="#0A0A0A" />
           <stop offset="54%" stopColor={BLUED} />
           <stop offset="100%" stopColor={BLUE} />
         </linearGradient>
@@ -59,18 +59,18 @@ export default function LnadEmblem({
           <stop offset="100%" stopColor="#0a1326" stopOpacity="0.4" />
         </radialGradient>
         <linearGradient id={bolt} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#E5483C" />
-          <stop offset="48%" stopColor="#E5483C" />
-          <stop offset="52%" stopColor="#2E6FB7" />
-          <stop offset="100%" stopColor="#2E6FB7" />
+          <stop offset="0%" stopColor="#E11530" />
+          <stop offset="48%" stopColor="#E11530" />
+          <stop offset="52%" stopColor="#1A82C8" />
+          <stop offset="100%" stopColor="#1A82C8" />
         </linearGradient>
         <radialGradient id={redN} cx="38%" cy="32%" r="70%">
-          <stop offset="0%" stopColor="#F08A80" />
+          <stop offset="0%" stopColor="#FF6B7A" />
           <stop offset="45%" stopColor={RED} />
           <stop offset="100%" stopColor={REDD} />
         </radialGradient>
         <radialGradient id={blueN} cx="38%" cy="32%" r="70%">
-          <stop offset="0%" stopColor="#7FA8E0" />
+          <stop offset="0%" stopColor="#4FA3D6" />
           <stop offset="45%" stopColor={BLUE} />
           <stop offset="100%" stopColor={BLUED} />
         </radialGradient>
