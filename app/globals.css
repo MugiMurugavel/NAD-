@@ -136,16 +136,33 @@ a {
   padding-inline: clamp(20px, 5vw, 72px);
 }
 
-/* Journey scrollytelling on phones: the landscape instrument letterboxes into
-   a portrait viewport, so scale it up to fill (the empty side gutters crop) and
-   drop the right-edge depth HUD to keep the frame clean. */
+/* Journey on phones: real stacked reflow — illustration fills the top, the
+   editorial copy becomes a bottom sheet, the vertical rail is dropped. */
 @media (max-width: 768px) {
-  .j-svg {
-    transform: scale(1.6);
-    transform-origin: 50% 52%;
+  .j-svgwrap { inset: 0 0 46svh 0 !important; }
+  .j-title { inset: 0 0 46svh 0 !important; padding-top: 64px !important; }
+  .j-pct { top: 30% !important; }
+  .j-plate {
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    bottom: 0 !important;
+    transform: none !important;
+    width: auto !important;
+    height: 46svh;
+    padding: 16px 20px !important;
+    background: rgba(247, 243, 235, 0.95);
+    border-top: 1px solid rgba(22, 35, 59, 0.12);
+    overflow: hidden;
+    z-index: 7;
   }
-  /* inline display:flex on the HUD needs !important to override */
-  .j-hud {
-    display: none !important;
+  .j-plate > div {
+    background: transparent !important;
+    border: 0 !important;
+    padding: 0 !important;
+    max-height: 100%;
+    overflow-y: auto;
   }
+  .j-rail { display: none !important; }
+  .j-resolve { justify-content: center !important; padding-bottom: 0 !important; }
 }
